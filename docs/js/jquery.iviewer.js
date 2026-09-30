@@ -14,19 +14,19 @@
 ( function( $, undefined ) {
 
 //this code was taken from the https://github.com/furf/jquery-ui-touch-punch
-var mouseEvents = {
-        touchstart: 'mousedown',
-        touchmove: 'mousemove',
-        touchend: 'mouseup'
-    },
-    gesturesSupport = 'ongesturestart' in document.createElement('div');
+    const mouseEvents = {
+            touchstart: 'mousedown',
+            touchmove: 'mousemove',
+            touchend: 'mouseup'
+        },
+        gesturesSupport = 'ongesturestart' in document.createElement('div');
 
 
-/**
+    /**
  * Convert a touch event to a mouse-like
  */
 function makeMouseEvent (event) {
-    var touch = event.originalEvent.changedTouches[0];
+    const touch = event.originalEvent.changedTouches[0];
 
     return $.extend(event, {
         type:    mouseEvents[event.type],
@@ -41,10 +41,10 @@ function makeMouseEvent (event) {
     });
 }
 
-var mouseProto = $.ui.mouse.prototype,
-    _mouseInit = $.ui.mouse.prototype._mouseInit;
+    const mouseProto = $.ui.mouse.prototype,
+        _mouseInit = $.ui.mouse.prototype._mouseInit;
 
-mouseProto._mouseInit = function() {
+    mouseProto._mouseInit = function() {
     var self = this;
     self._touchActive = false;
 
@@ -76,67 +76,67 @@ mouseProto._mouseInit = function() {
     _mouseInit.apply(this);
 }
 
-/**
- * Simple implementation of jQuery like getters/setters
- * var val = something();
- * something(val);
- */
-var setter = function(setter, getter) {
-    return function(val) {
-        if (arguments.length === 0) {
-            return getter.apply(this);
-        } else {
-            setter.apply(this, arguments);
-        }
-    }
-};
-
-/**
- * Internet explorer rotates image relative left top corner, so we should
- * shift image when it's rotated.
- */
-var ieTransforms = {
-        '0': {
-            marginLeft: 0,
-            marginTop: 0,
-            filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod="auto expand")'
-        },
-
-        '90': {
-            marginLeft: -1,
-            marginTop: 1,
-            filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=-1, M21=1, M22=0, SizingMethod="auto expand")'
-        },
-
-        '180': {
-            marginLeft: 0,
-            marginTop: 0,
-            filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, SizingMethod="auto expand")'
-        },
-
-        '270': {
-            marginLeft: -1,
-            marginTop: 1,
-            filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=1, M21=-1, M22=0, SizingMethod="auto expand")'
-        }
-    },
-    // this test is the inversion of the css filters test from the modernizr project
-    useIeTransforms = function() {
-        var modElem = document.createElement('modernizr'),
-		mStyle = modElem.style,
-		omPrefixes = 'Webkit Moz O ms',
-		domPrefixes = omPrefixes.toLowerCase().split(' '),
-        	props = ("transform" + ' ' + domPrefixes.join("Transform ") + "Transform").split(' ');
-        for ( var i in props ) {
-            var prop = props[i];
-            if ( !$.contains(prop, "-") && mStyle[prop] !== undefined ) {
-                return false;
+    /**
+     * Simple implementation of jQuery like getters/setters
+     * var val = something();
+     * something(val);
+     */
+    const setter = function (setter, getter) {
+        return function (val) {
+            if (arguments.length === 0) {
+                return getter.apply(this);
+            } else {
+                setter.apply(this, arguments);
             }
         }
-        return true;
-    }();
+    };
 
-$.widget( "ui.iviewer", $.ui.mouse, {
+    /**
+     * Internet explorer rotates image relative left top corner, so we should
+     * shift image when it's rotated.
+     */
+    const ieTransforms = {
+            '0': {
+                marginLeft: 0,
+                marginTop: 0,
+                filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod="auto expand")'
+            },
+
+            '90': {
+                marginLeft: -1,
+                marginTop: 1,
+                filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=-1, M21=1, M22=0, SizingMethod="auto expand")'
+            },
+
+            '180': {
+                marginLeft: 0,
+                marginTop: 0,
+                filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, SizingMethod="auto expand")'
+            },
+
+            '270': {
+                marginLeft: -1,
+                marginTop: 1,
+                filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=0, M12=1, M21=-1, M22=0, SizingMethod="auto expand")'
+            }
+        },
+        // this test is the inversion of the css filters test from the modernizr project
+        useIeTransforms = function () {
+            const modElem = document.createElement('modernizr'),
+                mStyle = modElem.style,
+                omPrefixes = 'Webkit Moz O ms',
+                domPrefixes = omPrefixes.toLowerCase().split(' '),
+                props = ("transform" + ' ' + domPrefixes.join("Transform ") + "Transform").split(' ');
+            for (let i in props) {
+                const prop = props[i];
+                if (!$.contains(prop, "-") && mStyle[prop] !== undefined) {
+                    return false;
+                }
+            }
+            return true;
+        }();
+
+    $.widget( "ui.iviewer", $.ui.mouse, {
     widgetEventPrefix: "iviewer",
     options : {
         /**
@@ -231,7 +231,7 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     },
 
     _create: function() {
-        var me = this;
+        const me = this;
 
         //drag variables
         this.dx = 0;
@@ -274,7 +274,7 @@ $.widget( "ui.iviewer", $.ui.mouse, {
                 {
                     //this event is there instead of containing div, because
                     //at opera it triggers many times on div
-                    var zoom = (delta > 0)?1:-1,
+                    const zoom = (delta > 0) ? 1 : -1,
                         container_offset = me.container.offset(),
                         mouse_pos = {
                             //jquery.mousewheel 3.1.0 uses strange MozMousePixelScroll event
@@ -288,14 +288,14 @@ $.widget( "ui.iviewer", $.ui.mouse, {
                 });
 
             if (gesturesSupport) {
-                var gestureThrottle = +new Date();
-                var originalScale, originalCenter;
+                let gestureThrottle = +new Date();
+                let originalScale, originalCenter;
                 this.img_object.object()
                     // .bind('gesturestart', function(ev) {
                     .bind('touchstart', function(ev) {
                         originalScale = me.current_zoom;
-                        var touches = ev.originalEvent.touches,
-                            container_offset;
+                        const touches = ev.originalEvent.touches;
+                        let container_offset;
                         if (touches.length == 2) {
                             container_offset = me.container.offset();
                             originalCenter = {
@@ -307,11 +307,11 @@ $.widget( "ui.iviewer", $.ui.mouse, {
                         }
                     }).bind('gesturechange', function(ev) {
                         //do not want to import throttle function from underscore
-                        var d = +new Date();
-                        if ((d - gestureThrottle) < 50) { return; }
+                    const d = +new Date();
+                    if ((d - gestureThrottle) < 50) { return; }
                         gestureThrottle = d;
-                        var zoom = originalScale * ev.originalEvent.scale;
-                        me.set_zoom(zoom, originalCenter);
+                    const zoom = originalScale * ev.originalEvent.scale;
+                    me.set_zoom(zoom, originalCenter);
                         ev.preventDefault();
                     }).bind('gestureend', function(ev) {
                         originalCenter = null;
@@ -360,7 +360,7 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     loadImage: function( src )
     {
         this.current_zoom = this.options.zoom;
-        var me = this;
+        const me = this;
 
         this._trigger('onStartLoad', 0, src);
 
@@ -393,10 +393,10 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     **/
     fit: function(skip_animation)
     {
-        var aspect_ratio = this.img_object.orig_width() / this.img_object.orig_height();
-        var window_ratio = this.options.width /  this.options.height;
-        var choose_left = (aspect_ratio > window_ratio);
-        var new_zoom = 0;
+        const aspect_ratio = this.img_object.orig_width() / this.img_object.orig_height();
+        const window_ratio = this.options.width / this.options.height;
+        const choose_left = (aspect_ratio > window_ratio);
+        let new_zoom = 0;
 
         if(choose_left){
             new_zoom = this.options.width / this.img_object.orig_width() * 100;
@@ -424,11 +424,11 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     **/
     moveTo: function(x, y)
     {
-        var dx = x-Math.round(this.options.width/2);
-        var dy = y-Math.round(this.options.height/2);
+        const dx = x - Math.round(this.options.width / 2);
+        const dy = y - Math.round(this.options.height / 2);
 
-        var new_x = this.img_object.x() - dx;
-        var new_y = this.img_object.y() - dy;
+        const new_x = this.img_object.x() - dx;
+        const new_y = this.img_object.y() - dy;
 
         this.setCoords(new_x, new_y);
     },
@@ -448,7 +448,7 @@ $.widget( "ui.iviewer", $.ui.mouse, {
         //do nothing while image is being loaded
         if(!this.img_object.loaded()) { return; }
 
-        var coords = this._correctCoords(x,y);
+        const coords = this._correctCoords(x, y);
         this.img_object.x(coords.x);
         this.img_object.y(coords.y);
     },
@@ -490,8 +490,9 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     **/
     containerToImage : function (x,y)
     {
-        var coords = { x : x - this.img_object.x(),
-                 y :  y - this.img_object.y()
+        let coords = {
+            x: x - this.img_object.x(),
+            y: y - this.img_object.y()
         };
 
         coords = this.img_object.toOriginalCoords(coords);
@@ -508,10 +509,10 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     **/
     imageToContainer : function (x,y)
     {
-        var coords = {
-                x : util.scaleValue(x, this.current_zoom),
-                y : util.scaleValue(y, this.current_zoom)
-            };
+        const coords = {
+            x: util.scaleValue(x, this.current_zoom),
+            y: util.scaleValue(y, this.current_zoom)
+        };
 
         return this.img_object.toRealCoords(coords);
     },
@@ -525,8 +526,8 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     **/
     _getMouseCoords : function(e)
     {
-        var containerOffset = this.container.offset();
-            coords = this.containerToImage(e.pageX - containerOffset.left, e.pageY - containerOffset.top);
+        const containerOffset = this.container.offset();
+        coords = this.containerToImage(e.pageX - containerOffset.left, e.pageY - containerOffset.top);
 
         return coords;
     },
@@ -573,10 +574,10 @@ $.widget( "ui.iviewer", $.ui.mouse, {
             var old_y = -this.img_object.y() + zoom_center.y
         }
 
-        var new_width = util.scaleValue(this.img_object.orig_width(), new_zoom);
-        var new_height = util.scaleValue(this.img_object.orig_height(), new_zoom);
-        var new_x = util.scaleValue( util.descaleValue(old_x, this.current_zoom), new_zoom);
-        var new_y = util.scaleValue( util.descaleValue(old_y, this.current_zoom), new_zoom);
+        let new_width = util.scaleValue(this.img_object.orig_width(), new_zoom);
+        let new_height = util.scaleValue(this.img_object.orig_height(), new_zoom);
+        let new_x = util.scaleValue(util.descaleValue(old_x, this.current_zoom), new_zoom);
+        let new_y = util.scaleValue(util.descaleValue(old_y, this.current_zoom), new_zoom);
 
         new_x = zoom_center.x - new_x;
         new_y = zoom_center.y - new_y;
@@ -589,7 +590,7 @@ $.widget( "ui.iviewer", $.ui.mouse, {
         this.img_object.display_width(new_width);
         this.img_object.display_height(new_height);
 
-        var coords = this._correctCoords( new_x, new_y ),
+        const coords = this._correctCoords(new_x, new_y),
             self = this;
 
         this.img_object.setImageProps(new_width, new_height, coords.x, coords.y,
@@ -609,10 +610,10 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     **/
     zoom_by: function(delta, zoom_center)
     {
-        var closest_rate = this.find_closest_zoom_rate(this.current_zoom);
+        const closest_rate = this.find_closest_zoom_rate(this.current_zoom);
 
-        var next_rate = closest_rate + delta;
-        var next_zoom = this.options.zoom_base * Math.pow(this.options.zoom_delta, next_rate)
+        const next_rate = closest_rate + delta;
+        let next_zoom = this.options.zoom_base * Math.pow(this.options.zoom_delta, next_rate);
         if(delta > 0 && next_zoom < this.current_zoom)
         {
             next_zoom *= this.options.zoom_delta;
@@ -667,11 +668,11 @@ $.widget( "ui.iviewer", $.ui.mouse, {
         function div(val1,val2) { return val1 / val2 };
         function mul(val1,val2) { return val1 * val2 };
 
-        var func = (value > this.options.zoom_base)?mul:div;
-        var sgn = (value > this.options.zoom_base)?1:-1;
+        const func = (value > this.options.zoom_base) ? mul : div;
+        const sgn = (value > this.options.zoom_base) ? 1 : -1;
 
-        var mltplr = this.options.zoom_delta;
-        var rate = 1;
+        const mltplr = this.options.zoom_delta;
+        let rate = 1;
 
         while(Math.abs(func(this.options.zoom_base, Math.pow(mltplr,rate)) - value) >
               Math.abs(func(this.options.zoom_base, Math.pow(mltplr,rate+1)) - value))
@@ -687,7 +688,7 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     {
         if(!this.options.ui_disabled)
         {
-            var percent = Math.round(100*this.img_object.display_height()/this.img_object.orig_height());
+            const percent = Math.round(100 * this.img_object.display_height() / this.img_object.orig_height());
             if(percent)
             {
                 this.zoom_object.html(percent + "%");
@@ -781,8 +782,8 @@ $.widget( "ui.iviewer", $.ui.mouse, {
             this._dragInitialized = true;
         }
 
-        var ltop =  e.pageY - this.dy;
-        var lleft = e.pageX - this.dx;
+        const ltop = e.pageY - this.dy;
+        const lleft = e.pageX - this.dx;
 
         this.setCoords(lleft, ltop);
         this._trigger('onDrag', e, this._getMouseCoords(e));
@@ -809,7 +810,7 @@ $.widget( "ui.iviewer", $.ui.mouse, {
     **/
     createui: function()
     {
-        var me=this;
+        const me = this;
 
         $("<div>", { 'class': "iviewer_zoom_in iviewer_common iviewer_button"})
                     .bind('mousedown touchstart',function(){me.zoom_by(1); return false;})
@@ -897,14 +898,14 @@ $.ui.iviewer.ImageObject = function(do_anim) {
      * @param {Function=} loaded Function will be called on image load.
      */
     this.load = function(src, loaded, error) {
-        var self = this;
+        const self = this;
 
         loaded = loaded || jQuery.noop;
         this._loaded = false;
 
         //If we assign new image url to the this._img IE9 fires onload event and image width and
         //height are set to zero. So, we create another image object and load image through it.
-        var img = new Image();
+        const img = new Image();
         img.onload = function() {
             self._loaded = true;
             self._reset(this.width, this.height);
@@ -932,7 +933,7 @@ $.ui.iviewer.ImageObject = function(do_anim) {
     };
 
     this._dimension = function(prefix, name) {
-        var horiz = '_' + prefix + '_' + name,
+        const horiz = '_' + prefix + '_' + name,
             vert = '_' + prefix + '_' + (name === 'height' ? 'width' : 'height');
         return setter(function(val) {
                 this[this._swapDimensions ? horiz: vert] = val;
@@ -997,18 +998,18 @@ $.ui.iviewer.ImageObject = function(do_anim) {
      * @param {number} deg Absolute image angle. The method will work with values 0, 90, 180, 270 degrees.
      */
     this.angle = setter(function(deg) {
-            var prevSwap = this._swapDimensions;
+            const prevSwap = this._swapDimensions;
 
             this._angle = deg;
             this._swapDimensions = deg % 180 !== 0;
 
             if (prevSwap !== this._swapDimensions) {
-                var verticalMod = this._swapDimensions ? -1 : 1;
+                const verticalMod = this._swapDimensions ? -1 : 1;
                 this.x(this.x() - verticalMod * this.display_diff() / 2, true);
                 this.y(this.y() + verticalMod * this.display_diff() / 2, true);
             };
 
-            var cssVal = 'rotate(' + deg + 'deg)',
+            const cssVal = 'rotate(' + deg + 'deg)',
                 img = this._img;
 
             jQuery.each(['', '-webkit-', '-moz-', '-o-', '-ms-'], function(i, prefix) {
@@ -1090,10 +1091,10 @@ $.ui.iviewer.ImageObject = function(do_anim) {
         this.x(x, true);
         this.y(y, true);
 
-        var w = this._swapDimensions ? disp_h : disp_w;
-        var h = this._swapDimensions ? disp_w : disp_h;
+        const w = this._swapDimensions ? disp_h : disp_w;
+        const h = this._swapDimensions ? disp_w : disp_h;
 
-        var params = {
+        const params = {
             width: w,
             height: h,
             top: y - (this._swapDimensions ? this.display_diff() / 2 : 0) + "px",
@@ -1107,7 +1108,7 @@ $.ui.iviewer.ImageObject = function(do_anim) {
             });
         }
 
-        var swapDims = this._swapDimensions,
+        const swapDims = this._swapDimensions,
             img = this._img;
 
         //here we come: another IE oddness. If image is rotated 90 degrees with a filter, than
@@ -1131,7 +1132,7 @@ $.ui.iviewer.ImageObject = function(do_anim) {
                     complete: complete,
                     step: function(now, fx) {
                         if(useIeTransforms && swapDims && (fx.prop === 'top')) {
-                            var percent = (now - fx.start) / (fx.end - fx.start);
+                            const percent = (now - fx.start) / (fx.end - fx.start);
 
                             img.height(ieh + iedh * percent);
                             img.width(iew + iedw * percent);

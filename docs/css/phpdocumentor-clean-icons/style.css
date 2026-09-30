@@ -13,7 +13,6 @@
 [data-icon]:before {
 	font-family: 'phpdocumentor-clean-icons';
 	content: attr(data-icon);
-	speak: none;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
@@ -29,7 +28,6 @@ you can use the generic selector below, but it's slower:
 */
 .icon-trait, .icon-interface, .icon-class {
 	font-family: 'phpdocumentor-clean-icons';
-	speak: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;

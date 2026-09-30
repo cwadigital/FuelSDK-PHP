@@ -5,14 +5,15 @@ $(document).ready(function() {
             .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
             .replace(/\/$/,'');
     }
-    var locationPath = filterPath(location.pathname);
+
+    const locationPath = filterPath(location.pathname);
 
     $('a[href*=#]').each(function() {
-        var thisPath = filterPath(this.pathname) || locationPath;
+        const thisPath = filterPath(this.pathname) || locationPath;
         if (  locationPath == thisPath
             && (location.hostname == this.hostname || !this.hostname)
             && this.hash.replace(/#/,'') ) {
-            var $target = $(this.hash), target = this.hash;
+            const $target = $(this.hash), target = this.hash;
             if (target) {
                 $(this).click(function(event) {
                     if (!$(this.hash).offset()) {

@@ -2,8 +2,8 @@
 
 window.onload = function() {
 	function addIcon(el, entity) {
-		var html = el.innerHTML;
-		el.innerHTML = '<span style="font-family: \'phpdocumentor-clean-icons\'">' + entity + '</span>' + html;
+        const html = el.innerHTML;
+        el.innerHTML = '<span style="font-family: \'phpdocumentor-clean-icons\'">' + entity + '</span>' + html;
 	}
 	var icons = {
 			'icon-trait' : '&#xe000;',

@@ -19,25 +19,25 @@
     }
 }(function ($) {
 
-    var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
-        toBind = ( 'onwheel' in document || document.documentMode >= 9 ) ?
-                    ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
-        slice  = Array.prototype.slice,
-        nullLowestDeltaTimeout, lowestDelta;
+    const toFix = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
+        toBind = ('onwheel' in document || document.documentMode >= 9) ?
+            ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
+        slice = Array.prototype.slice;
+    let nullLowestDeltaTimeout, lowestDelta;
 
     if ( $.event.fixHooks ) {
-        for ( var i = toFix.length; i; ) {
+        for (let i = toFix.length; i; ) {
             $.event.fixHooks[ toFix[--i] ] = $.event.mouseHooks;
         }
     }
 
-    var special = $.event.special.mousewheel = {
+    const special = $.event.special.mousewheel = {
         version: '3.1.9',
 
-        setup: function() {
-            if ( this.addEventListener ) {
-                for ( var i = toBind.length; i; ) {
-                    this.addEventListener( toBind[--i], handler, false );
+        setup: function () {
+            if (this.addEventListener) {
+                for (let i = toBind.length; i;) {
+                    this.addEventListener(toBind[--i], handler, false);
                 }
             } else {
                 this.onmousewheel = handler;
@@ -47,21 +47,21 @@
             $.data(this, 'mousewheel-page-height', special.getPageHeight(this));
         },
 
-        teardown: function() {
-            if ( this.removeEventListener ) {
-                for ( var i = toBind.length; i; ) {
-                    this.removeEventListener( toBind[--i], handler, false );
+        teardown: function () {
+            if (this.removeEventListener) {
+                for (let i = toBind.length; i;) {
+                    this.removeEventListener(toBind[--i], handler, false);
                 }
             } else {
                 this.onmousewheel = null;
             }
         },
 
-        getLineHeight: function(elem) {
+        getLineHeight: function (elem) {
             return parseInt($(elem)['offsetParent' in $.fn ? 'offsetParent' : 'parent']().css('fontSize'), 10);
         },
 
-        getPageHeight: function(elem) {
+        getPageHeight: function (elem) {
             return $(elem).height();
         },
 
@@ -82,12 +82,12 @@
 
 
     function handler(event) {
-        var orgEvent   = event || window.event,
-            args       = slice.call(arguments, 1),
-            delta      = 0,
-            deltaX     = 0,
-            deltaY     = 0,
-            absDelta   = 0;
+        const orgEvent = event || window.event,
+            args = slice.call(arguments, 1);
+        let delta = 0,
+            deltaX = 0,
+            deltaY = 0,
+            absDelta = 0;
         event = $.event.fix(orgEvent);
         event.type = 'mousewheel';
 
@@ -125,12 +125,12 @@
         //   * deltaMode 1 is by lines
         //   * deltaMode 2 is by pages
         if ( orgEvent.deltaMode === 1 ) {
-            var lineHeight = $.data(this, 'mousewheel-line-height');
+            const lineHeight = $.data(this, 'mousewheel-line-height');
             delta  *= lineHeight;
             deltaY *= lineHeight;
             deltaX *= lineHeight;
         } else if ( orgEvent.deltaMode === 2 ) {
-            var pageHeight = $.data(this, 'mousewheel-page-height');
+            const pageHeight = $.data(this, 'mousewheel-page-height');
             delta  *= pageHeight;
             deltaY *= pageHeight;
             deltaX *= pageHeight;

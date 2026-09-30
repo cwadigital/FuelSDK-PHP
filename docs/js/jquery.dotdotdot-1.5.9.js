@@ -1,6 +1,6 @@
-/*	
+/*
  *	jQuery dotdotdot 1.5.9
- *	
+ *
  *	Copyright (c) 2013 Fred Heusschen
  *	www.frebsite.nl
  *
@@ -25,7 +25,7 @@
 		{
 			if ( !o || o.debug !== false )
 			{
-				debug( true, 'No element found for "' + this.selector + '".' );				
+				debug( true, 'No element found for "' + this.selector + '".' );
 			}
 			return this;
 		}
@@ -40,9 +40,9 @@
 		}
 
 
-		var $dot = this;
+        const $dot = this;
 
-		if ( $dot.data( 'dotdotdot' ) )
+        if ( $dot.data( 'dotdotdot' ) )
 		{
 			$dot.trigger( 'destroy.dot' );
 		}
@@ -59,8 +59,8 @@
 					e.preventDefault();
 					e.stopPropagation();
 
-					opts.maxHeight = ( typeof opts.height == 'number' ) 
-						? opts.height 
+					opts.maxHeight = ( typeof opts.height == 'number' )
+						? opts.height
 						: getTrueInnerHeight( $dot );
 
 					opts.maxHeight += opts.tolerance;
@@ -88,10 +88,10 @@
 							'margin'	: 0
 						});
 
-					var after = false,
-						trunc = false;
+                    let after = false,
+                        trunc = false;
 
-					if ( conf.afterElement )
+                    if ( conf.afterElement )
 					{
 						after = conf.afterElement.clone( true );
 						conf.afterElement.remove();
@@ -109,7 +109,7 @@
 					}
 					$inr.replaceWith( $inr.contents() );
 					$inr = null;
-					
+
 					if ( $.isFunction( opts.callback ) )
 					{
 						opts.callback.call( $dot[ 0 ], trunc, orgContent );
@@ -176,11 +176,11 @@
 			$dot.unwatch();
 			if ( opts.watch == 'window' )
 			{
-				var $window = $(window),
-					_wWidth = $window.width(),
-					_wHeight = $window.height(); 
+                const $window = $(window);
+                let _wWidth = $window.width(),
+                    _wHeight = $window.height();
 
-				$window.bind(
+                $window.bind(
 					'resize.dot' + conf.dotId,
 					function()
 					{
@@ -188,7 +188,7 @@
 						{
 							_wWidth = $window.width();
 							_wHeight = $window.height();
-	
+
 							if ( watchInt )
 							{
 								clearInterval( watchInt );
@@ -209,8 +209,8 @@
 				watchInt = setInterval(
 					function()
 					{
-						var watchNew = getSizes( $dot );
-						if ( watchOrg.width  != watchNew.width ||
+                        const watchNew = getSizes($dot);
+                        if ( watchOrg.width  != watchNew.width ||
 							 watchOrg.height != watchNew.height )
 						{
 							$dot.trigger( 'update.dot' );
@@ -272,22 +272,24 @@
 		'windowResizeFix': true,
 		'debug'		: false
 	};
-	
+
 
 	//	private
 	var dotId = 1;
 
 	function children( $elem, o, after )
 	{
-		var $elements 	= $elem.children(),
-			isTruncated	= false;
+        const $elements = $elem.children();
+        let isTruncated = false;
 
-		$elem.empty();
+        $elem.empty();
 
-		for ( var a = 0, l = $elements.length; a < l; a++ )
+        let a = 0;
+        const l = $elements.length;
+        for (; a < l; a++ )
 		{
-			var $e = $elements.eq( a );
-			$elem.append( $e );
+            const $e = $elements.eq(a);
+            $elem.append( $e );
 			if ( after )
 			{
 				$elem.append( after );
@@ -310,13 +312,15 @@
 	}
 	function ellipsis( $elem, $d, $i, o, after )
 	{
-		var $elements 	= $elem.contents(),
-			isTruncated	= false;
+        const $elements = $elem.contents();
+        let isTruncated = false;
 
-		$elem.empty();
+        $elem.empty();
 
-		var notx = 'table, thead, tbody, tfoot, tr, col, colgroup, object, embed, param, ol, ul, dl, select, optgroup, option, textarea, script, style';
-		for ( var a = 0, l = $elements.length; a < l; a++ )
+        const notx = 'table, thead, tbody, tfoot, tr, col, colgroup, object, embed, param, ol, ul, dl, select, optgroup, option, textarea, script, style';
+        let a = 0;
+        const l = $elements.length;
+        for (; a < l; a++ )
 		{
 
 			if ( isTruncated )
@@ -324,10 +328,10 @@
 				break;
 			}
 
-			var e	= $elements[ a ],
-				$e	= $(e);
+            const e = $elements[a],
+                $e = $(e);
 
-			if ( typeof e == 'undefined' )
+            if ( typeof e == 'undefined' )
 			{
 				continue;
 			}
@@ -369,17 +373,17 @@
 			return false;
 		}
 
-		var seporator	= ( o.wrap == 'letter' ) ? '' : ' ',
-			textArr		= getTextContent( e ).split( seporator ),
-			position 	= -1,
-			midPos		= -1,
-			startPos	= 0,
-			endPos		= textArr.length - 1;
+        const seporator = (o.wrap == 'letter') ? '' : ' ',
+            textArr = getTextContent(e).split(seporator);
+        let position = -1,
+            midPos = -1,
+            startPos = 0,
+            endPos = textArr.length - 1;
 
-		while ( startPos <= endPos )
+        while ( startPos <= endPos )
 		{
-			var m = Math.floor( ( startPos + endPos ) / 2 );
-			if ( m == midPos ) 
+            const m = Math.floor((startPos + endPos) / 2);
+            if ( m == midPos )
 			{
 				break;
 			}
@@ -390,14 +394,14 @@
 			if ( !test( $i, o ) )
 			{
 				position = midPos;
-				startPos = midPos; 
+				startPos = midPos;
 			}
 			else
 			{
 				endPos = midPos;
-			}				
-		}	
-	
+			}
+		}
+
 		if ( position != -1 && !( textArr.length == 1 && textArr[ 0 ].length == 0 ) )
 		{
 			var txt = addEllipsis( textArr.slice( 0, position + 1 ).join( seporator ), o );
@@ -406,20 +410,20 @@
 		}
 		else
 		{
-			var $w = $e.parent();
-			$e.remove();
+            const $w = $e.parent();
+            $e.remove();
 
-			var afterLength = ( after ) ? after.length : 0 ;
+            const afterLength = (after) ? after.length : 0;
 
-			if ( $w.contents().size() > afterLength )
+            if ( $w.contents().size() > afterLength )
 			{
-				var $n = $w.contents().eq( -1 - afterLength );
-				isTruncated = ellipsisElement( $n, $d, $i, o, after );
+                const $n = $w.contents().eq(-1 - afterLength);
+                isTruncated = ellipsisElement( $n, $d, $i, o, after );
 			}
 			else
 			{
-				var $p = $w.prev()
-				var e = $p.contents().eq( -1 )[ 0 ];
+                const $p = $w.prev();
+                var e = $p.contents().eq( -1 )[ 0 ];
 
 				if ( typeof e != 'undefined' )
 				{
@@ -510,7 +514,7 @@
 		{
 			e = $(e, $i);
 			return ( e.length )
-				? e 
+				? e
 				: false;
 		}
 		if ( typeof e == 'object' )
@@ -523,12 +527,14 @@
 	}
 	function getTrueInnerHeight( $el )
 	{
-		var h = $el.innerHeight(),
-			a = [ 'paddingTop', 'paddingBottom' ];
+        let h = $el.innerHeight();
+        const a = ['paddingTop', 'paddingBottom'];
 
-		for ( var z = 0, l = a.length; z < l; z++ ) {
-			var m = parseInt( $el.css( a[ z ] ), 10 );
-			if ( isNaN( m ) )
+        let z = 0;
+        const l = a.length;
+        for (; z < l; z++ ) {
+            let m = parseInt($el.css(a[z]), 10);
+            if ( isNaN( m ) )
 			{
 				m = 0;
 			}
@@ -560,10 +566,10 @@
 		}
 		return false;
 	}
-	
+
 
 	//	override jQuery.html
-	var _orgHtml = $.fn.html;
+    const _orgHtml = $.fn.html;
     $.fn.html = function( str ) {
 		if ( typeof str != 'undefined' )
 		{
@@ -581,14 +587,14 @@
 
 
 	//	override jQuery.text
-	var _orgText = $.fn.text;
+    const _orgText = $.fn.text;
     $.fn.text = function( str ) {
 		if ( typeof str != 'undefined' )
 		{
 			if ( this.data( 'dotdotdot' ) )
 			{
-				var temp = $( '<div />' );
-				temp.text( str );
+                const temp = $('<div />');
+                temp.text( str );
 				str = temp.html();
 				temp.remove();
 				return this.trigger( 'update', [ str ] );
