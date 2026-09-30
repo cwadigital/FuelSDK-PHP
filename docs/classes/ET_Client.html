@@ -11,7 +11,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
-    
+
     <!--[if lt IE 9]>
     <script src="../js/html5.js"></script>
     <![endif]-->
@@ -24,11 +24,11 @@
     <script type="text/javascript">
     function loadExternalCodeSnippets() {
         Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
-            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-            var language = 'php';
+            const src = pre.getAttribute('data-src');
+            const extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            const language = 'php';
 
-            var code = document.createElement('code');
+            const code = document.createElement('code');
             code.className = 'language-' + language;
 
             pre.textContent = '';
@@ -37,7 +37,7 @@
 
             pre.appendChild(code);
 
-            var xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
 
             xhr.open('GET', src, true);
 
@@ -142,7 +142,7 @@
             <div id="namespace-1698045592" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
-                    
+
                     <ul>
                                                                                                     <li class="class"><a href="../classes/ET_Asset.html">ET_Asset</a></li>
                                                     <li class="class"><a href="../classes/ET_BaseObject.html">ET_BaseObject</a></li>
@@ -215,8 +215,8 @@
                     <p>This is the main client class which performs authentication, obtains auth token, if expired refresh auth token.
 Settings/Configuration can be passed to this class during construction or set it in config.php file.
 Configuration passed as parameter overrides the values from the configuration file.</p>
-                    
-                                        
+
+
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
@@ -306,8 +306,8 @@ Configuration passed as parameter overrides the values from the configuration fi
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
-                                        
-                    
+
+
                     <dl>
                         <dt>File</dt>
                             <dd><a href="../files/ET_Client.html"><div class="path-wrapper">ET_Client.php</div></a></dd>
@@ -315,15 +315,15 @@ Configuration passed as parameter overrides the values from the configuration fi
                             <dd><div class="namespace-wrapper">Default</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                
+
                                         <div class="namespace-wrapper">\SoapClient</div>
                                                                                                     <div class="namespace-wrapper">\ET_Client</div>
                             </dd>
 
-                        
-                        
-                        
-                        
+
+
+
+
                                                                         </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
@@ -332,8 +332,8 @@ Configuration passed as parameter overrides the values from the configuration fi
                 </aside>
             </div>
 
-                        
-                                    <a id="properties" name="properties"></a>
+
+                                    <a id="properties"></a>
             <div class="row-fluid">
                 <div class="span8 content class">
                     <h2>Properties</h2>
@@ -343,12 +343,12 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_packageName" name="property_packageName" class="anchor"></a>
+            <a id="property_packageName" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$packageName</h3>
                 <pre class="signature">$packageName : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -367,12 +367,12 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_packageFolders" name="property_packageFolders" class="anchor"></a>
+            <a id="property_packageFolders" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$packageFolders</h3>
                 <pre class="signature">$packageFolders : array</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 array
@@ -391,12 +391,12 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_parentFolders" name="property_parentFolders" class="anchor"></a>
+            <a id="property_parentFolders" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$parentFolders</h3>
                 <pre class="signature">$parentFolders : \ET_Folder</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 <a href="../classes/ET_Folder.html">\ET_Folder</a>
@@ -415,12 +415,12 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_proxyHost" name="property_proxyHost" class="anchor"></a>
+            <a id="property_proxyHost" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$proxyHost</h3>
                 <pre class="signature">$proxyHost : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -439,12 +439,12 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_proxyPort" name="property_proxyPort" class="anchor"></a>
+            <a id="property_proxyPort" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$proxyPort</h3>
                 <pre class="signature">$proxyPort : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -463,12 +463,12 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_proxyUserName" name="property_proxyUserName" class="anchor"></a>
+            <a id="property_proxyUserName" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$proxyUserName</h3>
                 <pre class="signature">$proxyUserName : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -487,12 +487,12 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_proxyPassword" name="property_proxyPassword" class="anchor"></a>
+            <a id="property_proxyPassword" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$proxyPassword</h3>
                 <pre class="signature">$proxyPassword : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -511,15 +511,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_wsdlLoc" name="property_wsdlLoc" class="anchor"></a>
+            <a id="property_wsdlLoc" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$wsdlLoc</h3>
                 <pre class="signature">$wsdlLoc : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -535,15 +535,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_debugSOAP" name="property_debugSOAP" class="anchor"></a>
+            <a id="property_debugSOAP" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$debugSOAP</h3>
                 <pre class="signature">$debugSOAP : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -559,15 +559,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_lastHTTPCode" name="property_lastHTTPCode" class="anchor"></a>
+            <a id="property_lastHTTPCode" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$lastHTTPCode</h3>
                 <pre class="signature">$lastHTTPCode : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -583,15 +583,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_clientId" name="property_clientId" class="anchor"></a>
+            <a id="property_clientId" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$clientId</h3>
                 <pre class="signature">$clientId : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -607,15 +607,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_clientSecret" name="property_clientSecret" class="anchor"></a>
+            <a id="property_clientSecret" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$clientSecret</h3>
                 <pre class="signature">$clientSecret : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -631,15 +631,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_appsignature" name="property_appsignature" class="anchor"></a>
+            <a id="property_appsignature" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$appsignature</h3>
                 <pre class="signature">$appsignature : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -655,15 +655,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_endpoint" name="property_endpoint" class="anchor"></a>
+            <a id="property_endpoint" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$endpoint</h3>
                 <pre class="signature">$endpoint : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -679,15 +679,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_tenantTokens" name="property_tenantTokens" class="anchor"></a>
+            <a id="property_tenantTokens" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$tenantTokens</h3>
                 <pre class="signature">$tenantTokens : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -703,15 +703,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_tenantKey" name="property_tenantKey" class="anchor"></a>
+            <a id="property_tenantKey" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$tenantKey</h3>
                 <pre class="signature">$tenantKey : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -727,15 +727,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_xmlLoc" name="property_xmlLoc" class="anchor"></a>
+            <a id="property_xmlLoc" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$xmlLoc</h3>
                 <pre class="signature">$xmlLoc : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -751,15 +751,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_baseUrl" name="property_baseUrl" class="anchor"></a>
+            <a id="property_baseUrl" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$baseUrl</h3>
                 <pre class="signature">$baseUrl : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -775,15 +775,15 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_baseAuthUrl" name="property_baseAuthUrl" class="anchor"></a>
+            <a id="property_baseAuthUrl" class="anchor"></a>
             <article class="property">
                 <h3 class="private ">$baseAuthUrl</h3>
                 <pre class="signature">$baseAuthUrl : </pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
-                
+
                                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -797,8 +797,8 @@ Configuration passed as parameter overrides the values from the configuration fi
         </aside>
     </div>
 
-                            
-                                    <a id="methods" name="methods"></a>
+
+                                    <a id="methods"></a>
             <div class="row-fluid">
                 <div class="span8 content class"><h2>Methods</h2></div>
                 <aside class="span4 detailsbar"></aside>
@@ -806,13 +806,13 @@ Configuration passed as parameter overrides the values from the configuration fi
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <a id="method___construct" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__construct(boolean  <span class="argument">$getWSDL = false</span>, boolean  <span class="argument">$debug = false</span>, array  <span class="argument">$params = null</span>) </pre>
                 <p><em>Initializes a new instance of the ET_Client class.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -832,24 +832,24 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                                     <tr>
                                 <td>array</td>
                                 <td>$params </td>
-                                <td><p>Array of settings as string.</br>
-<b>Following are the possible settings.</b></br>
-<i><b>defaultwsdl</b></i> - WSDL location/path</br>
-<i><b>clientid</b></i> - Client Identifier optained from App Center</br>
-<i><b>clientsecred</b></i> - Client secret associated with clientid</br>
-<i><b>appsignature</b></i> - Application signature optained from App Center</br>
-<i><b>baseUrl</b></i> - ExactTarget SOAP API Url</br>
-<i><b>baseAuthUrl</b></i> - ExactTarget authentication rest api resource url</br>
-<b>If your application behind a proxy server, use the following setting</b></br>
-<i><b>proxyhost</b></i> - proxy server host name or ip address</br>
-<i><b>proxyport</b></i> - proxy server prot number</br>
-<i><b>proxyusername</b></i> - proxy server user name</br>
-<i><b>proxypassword</b></i> - proxy server password</br></p></td>
+                                <td><p>Array of settings as string.<br>
+<b>Following are the possible settings.</b><br>
+<i><b>defaultwsdl</b></i> - WSDL location/path<br>
+<i><b>clientid</b></i> - Client Identifier optained from App Center<br>
+<i><b>clientsecred</b></i> - Client secret associated with clientid<br>
+<i><b>appsignature</b></i> - Application signature optained from App Center<br>
+<i><b>baseUrl</b></i> - ExactTarget SOAP API Url<br>
+<i><b>baseAuthUrl</b></i> - ExactTarget authentication rest api resource url<br>
+<b>If your application behind a proxy server, use the following setting</b><br>
+<i><b>proxyhost</b></i> - proxy server host name or ip address<br>
+<i><b>proxyport</b></i> - proxy server prot number<br>
+<i><b>proxyusername</b></i> - proxy server user name<br>
+<i><b>proxypassword</b></i> - proxy server password<br></p></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -865,13 +865,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_refreshToken" name="method_refreshToken" class="anchor"></a>
+            <a id="method_refreshToken" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">refreshToken()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">refreshToken(boolean  <span class="argument">$forceRefresh = false</span>) : void</pre>
                 <p><em>Gets the refresh token using the authentication URL.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -881,9 +881,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Flag to indicate a force refresh of authentication toekn.</p></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -899,19 +899,19 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method___getLastResponseHTTPCode" name="method___getLastResponseHTTPCode" class="anchor"></a>
+            <a id="method___getLastResponseHTTPCode" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">__getLastResponseHTTPCode()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__getLastResponseHTTPCode() : \lastHTTPCode</pre>
                 <p><em>Returns the  HTTP code return by the last SOAP/Rest call</em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     \lastHTTPCode
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -927,13 +927,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_CreateWSDL" name="method_CreateWSDL" class="anchor"></a>
+            <a id="method_CreateWSDL" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">CreateWSDL()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">CreateWSDL(  <span class="argument">$wsdlLoc</span>) : void</pre>
                 <p><em>Create the WSDL file at specified location.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -943,9 +943,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -961,13 +961,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_GetLastModifiedDate" name="method_GetLastModifiedDate" class="anchor"></a>
+            <a id="method_GetLastModifiedDate" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">GetLastModifiedDate()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">GetLastModifiedDate(\[type]  <span class="argument">$remotepath</span>) : string</pre>
                 <p><em>Returns last modified date of the URL</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -977,12 +977,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Last modified date</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -998,13 +998,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method___doRequest" name="method___doRequest" class="anchor"></a>
+            <a id="method___doRequest" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">__doRequest()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__doRequest(string  <span class="argument">$request</span>, string  <span class="argument">$location</span>, string  <span class="argument">$saction</span>, string  <span class="argument">$version</span>, integer  <span class="argument">$one_way</span>) : string</pre>
                 <p><em>Perfoms an soap request.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1034,12 +1034,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Future use</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Soap web service request result</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1055,13 +1055,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_addOAuth" name="method_addOAuth" class="anchor"></a>
+            <a id="method_addOAuth" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">addOAuth()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">addOAuth(string  <span class="argument">$doc</span>, string  <span class="argument">$token</span>) : void</pre>
                 <p><em>Add OAuth token to the header of the soap request</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1076,9 +1076,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>OAuth token</p></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1094,13 +1094,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_getAuthToken" name="method_getAuthToken" class="anchor"></a>
+            <a id="method_getAuthToken" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">getAuthToken()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAuthToken(  <span class="argument">$tenantKey = null</span>) : string</pre>
                 <p><em>Get the authentication token.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1110,11 +1110,11 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     string
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1130,13 +1130,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_setAuthToken" name="method_setAuthToken" class="anchor"></a>
+            <a id="method_setAuthToken" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">setAuthToken()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">setAuthToken(string  <span class="argument">$tenantKey</span>, string  <span class="argument">$authToken</span>, string  <span class="argument">$authTokenExpiration</span>) </pre>
                 <p><em>Set the authentication token in the tenantTokens array.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1156,9 +1156,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Authentication token expiration value</p></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1174,13 +1174,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_getAuthTokenExpiration" name="method_getAuthTokenExpiration" class="anchor"></a>
+            <a id="method_getAuthTokenExpiration" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">getAuthTokenExpiration()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAuthTokenExpiration(string  <span class="argument">$tenantKey</span>) : string</pre>
                 <p><em>Get the Auth Token Expiration.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1190,12 +1190,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Tenant key for which authenication token is returned</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Authenticaiton token for the tenant key</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1211,13 +1211,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_getInternalAuthToken" name="method_getInternalAuthToken" class="anchor"></a>
+            <a id="method_getInternalAuthToken" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">getInternalAuthToken()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getInternalAuthToken(string  <span class="argument">$tenantKey</span>) : string</pre>
                 <p><em>Get the internal authentication token.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1227,12 +1227,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Internal authenication token</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1248,13 +1248,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_setInternalAuthToken" name="method_setInternalAuthToken" class="anchor"></a>
+            <a id="method_setInternalAuthToken" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">setInternalAuthToken()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">setInternalAuthToken(string  <span class="argument">$tenantKey</span>, string  <span class="argument">$internalAuthToken</span>) </pre>
                 <p><em>Set the internal auth tokan.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1269,9 +1269,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1287,13 +1287,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_setRefreshToken" name="method_setRefreshToken" class="anchor"></a>
+            <a id="method_setRefreshToken" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">setRefreshToken()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">setRefreshToken(string  <span class="argument">$tenantKey</span>, string  <span class="argument">$refreshToken</span>) </pre>
                 <p><em>Set the refresh authentication token.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1308,9 +1308,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Refresh authenication token</p></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1326,13 +1326,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_getRefreshToken" name="method_getRefreshToken" class="anchor"></a>
+            <a id="method_getRefreshToken" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">getRefreshToken()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getRefreshToken(string  <span class="argument">$tenantKey</span>) : string</pre>
                 <p><em>Get the refresh token for the tenant.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1342,12 +1342,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Refresh token for the tenant</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1363,13 +1363,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_AddSubscriberToList" name="method_AddSubscriberToList" class="anchor"></a>
+            <a id="method_AddSubscriberToList" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">AddSubscriberToList()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">AddSubscriberToList(string  <span class="argument">$emailAddress</span>, array  <span class="argument">$listIDs</span>, string  <span class="argument">$subscriberKey = null</span>) : mixed</pre>
                 <p><em>Add subscriber to list.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1389,12 +1389,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Newly added subscriber key</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>post or patch response object. If the subscriber already existing patch response is returned otherwise post response returned.</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1410,13 +1410,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_AddSubscribersToLists" name="method_AddSubscribersToLists" class="anchor"></a>
+            <a id="method_AddSubscribersToLists" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">AddSubscribersToLists()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">AddSubscribersToLists(  <span class="argument">$subs</span>,   <span class="argument">$listIDs</span>) </pre>
                 <p><em></em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1431,9 +1431,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1449,13 +1449,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_CreateDataExtensions" name="method_CreateDataExtensions" class="anchor"></a>
+            <a id="method_CreateDataExtensions" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">CreateDataExtensions()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">CreateDataExtensions(array  <span class="argument">$dataExtensionDefinitions</span>) : mixed</pre>
                 <p><em>Create a new data extension based on the definition passed</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1465,12 +1465,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Data extension definition properties as an array</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>post response object</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1486,13 +1486,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_SendTriggeredSends" name="method_SendTriggeredSends" class="anchor"></a>
+            <a id="method_SendTriggeredSends" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">SendTriggeredSends()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">SendTriggeredSends(array  <span class="argument">$arrayOfTriggeredRecords</span>) : mixed</pre>
                 <p><em>Starts an send operation for the TriggerredSend records</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1502,12 +1502,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Array of TriggeredSend records</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Send reponse object</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1523,13 +1523,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_SendEmailToList" name="method_SendEmailToList" class="anchor"></a>
+            <a id="method_SendEmailToList" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">SendEmailToList()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">SendEmailToList(string  <span class="argument">$emailID</span>, string  <span class="argument">$listID</span>, string  <span class="argument">$sendClassficationCustomerKey</span>) : mixed</pre>
                 <p><em>Create an email send definition, send the email based on the definition and delete the definition.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1549,12 +1549,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Send classification customer key</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Final delete action result</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1570,13 +1570,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_SendEmailToDataExtension" name="method_SendEmailToDataExtension" class="anchor"></a>
+            <a id="method_SendEmailToDataExtension" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">SendEmailToDataExtension()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">SendEmailToDataExtension(string  <span class="argument">$emailID</span>, string  <span class="argument">$sendableDataExtensionCustomerKey</span>, string  <span class="argument">$sendClassficationCustomerKey</span>) : mixed</pre>
                 <p><em>Create an email send definition, send the email based on the definition and delete the definition.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1596,12 +1596,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Send classification customer key</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Final delete action result</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1617,13 +1617,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_CreateAndStartListImport" name="method_CreateAndStartListImport" class="anchor"></a>
+            <a id="method_CreateAndStartListImport" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">CreateAndStartListImport()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">CreateAndStartListImport(string  <span class="argument">$listId</span>, string  <span class="argument">$fileName</span>) : mixed</pre>
                 <p><em>Create an import definition and start the import process</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1638,12 +1638,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Name of the file to be imported</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Returns the import process result</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1659,13 +1659,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_CreateAndStartDataExtensionImport" name="method_CreateAndStartDataExtensionImport" class="anchor"></a>
+            <a id="method_CreateAndStartDataExtensionImport" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">CreateAndStartDataExtensionImport()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">CreateAndStartDataExtensionImport(string  <span class="argument">$dataExtensionCustomerKey</span>, string  <span class="argument">$fileName</span>, boolean  <span class="argument">$overwrite</span>) : mixed</pre>
                 <p><em>Create an import definition and start the import process</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1685,12 +1685,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Flag to indicate to overwrite the uploaded file</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Returns the import process result</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1706,13 +1706,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_CreateProfileAttributes" name="method_CreateProfileAttributes" class="anchor"></a>
+            <a id="method_CreateProfileAttributes" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">CreateProfileAttributes()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">CreateProfileAttributes(array  <span class="argument">$allAttributes</span>) : mixed</pre>
                 <p><em>Create a profile attribute</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1722,12 +1722,12 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Profile attribute properties as an array.</p></td>
                             </tr>
                                             </table>
-                
-                
+
+
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Post operation result</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1743,13 +1743,13 @@ Logging is enabled when the value is set to true and disabled when set to false.
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_CreateContentAreas" name="method_CreateContentAreas" class="anchor"></a>
+            <a id="method_CreateContentAreas" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">CreateContentAreas()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">CreateContentAreas(array  <span class="argument">$arrayOfContentAreas</span>) : void</pre>
                 <p><em>Create one or more content areas</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -1759,9 +1759,9 @@ Logging is enabled when the value is set to true and disabled when set to false.
                                 <td><p>Content areas properties as an array</p></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1824,7 +1824,7 @@ Logging is enabled when the value is set to true and disabled when set to false.
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on 
+                    on
 Warning: date_default_timezone_get(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in /Users/smunuswami/Documents/workspace/FuelSDK-PHP/vendor/twig/twig/lib/Twig/Extension/Core.php on line 92
 July 14th, 2017 at 19:17.
                 </section>

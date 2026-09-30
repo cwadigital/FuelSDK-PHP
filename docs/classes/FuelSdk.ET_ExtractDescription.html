@@ -11,7 +11,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
-    
+
     <!--[if lt IE 9]>
     <script src="../js/html5.js"></script>
     <![endif]-->
@@ -24,11 +24,11 @@
     <script type="text/javascript">
     function loadExternalCodeSnippets() {
         Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
-            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-            var language = 'php';
+            const src = pre.getAttribute('data-src');
+            const extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            const language = 'php';
 
-            var code = document.createElement('code');
+            const code = document.createElement('code');
             code.className = 'language-' + language;
 
             pre.textContent = '';
@@ -37,7 +37,7 @@
 
             pre.appendChild(code);
 
-            var xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
 
             xhr.open('GET', src, true);
 
@@ -159,7 +159,7 @@
             <div id="namespace-1748848632" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
-                    
+
                     <ul>
                                                                                                     <li class="class"><a href="../classes/FuelSdk.ET_Asset.html">ET_Asset</a></li>
                                                     <li class="class"><a href="../classes/FuelSdk.ET_BaseObject.html">ET_BaseObject</a></li>
@@ -221,7 +221,7 @@
         </div>
     </div>
 
-                    
+
                     <ul>
                                                                                             </ul>
                 </div>
@@ -242,9 +242,9 @@
 
                     <h1><small>\FuelSdk</small>ET_ExtractDescription</h1>
                     <p><em>Contains information about the opening of a message send by a subscriber.</em></p>
-                    
-                    
-                                        
+
+
+
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
@@ -302,8 +302,8 @@
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
-                                        
-                    
+
+
                     <dl>
                         <dt>File</dt>
                             <dd><a href="../files/ET_ExtractDescription.html"><div class="path-wrapper">ET_ExtractDescription.php</div></a></dd>
@@ -311,17 +311,17 @@
                             <dd><div class="namespace-wrapper">Default</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
                                         <div class="namespace-wrapper"><a href="../classes/FuelSdk.ET_BaseObject.html">\FuelSdk\ET_BaseObject</a></div>
-                                                                    
+
                                         <div class="namespace-wrapper"><a href="../classes/FuelSdk.ET_GetSupport.html">\FuelSdk\ET_GetSupport</a></div>
                                                                                                     <div class="namespace-wrapper">\FuelSdk\ET_ExtractDescription</div>
                             </dd>
 
-                        
-                        
-                        
-                        
+
+
+
+
                                                                         </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
@@ -330,8 +330,8 @@
                 </aside>
             </div>
 
-                        
-                                    <a id="properties" name="properties"></a>
+
+                                    <a id="properties"></a>
             <div class="row-fluid">
                 <div class="span8 content class">
                     <h2>Properties</h2>
@@ -341,12 +341,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_authStub" name="property_authStub" class="anchor"></a>
+            <a id="property_authStub" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$authStub</h3>
                 <pre class="signature">$authStub : \FuelSdk\ET_Client</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 <a href="../classes/FuelSdk.ET_Client.html">\FuelSdk\ET_Client</a>
@@ -367,12 +367,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_props" name="property_props" class="anchor"></a>
+            <a id="property_props" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$props</h3>
                 <pre class="signature">$props : array</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 array
@@ -393,12 +393,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_filter" name="property_filter" class="anchor"></a>
+            <a id="property_filter" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$filter</h3>
                 <pre class="signature">$filter : array</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 array
@@ -419,12 +419,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_organizationId" name="property_organizationId" class="anchor"></a>
+            <a id="property_organizationId" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$organizationId</h3>
                 <pre class="signature">$organizationId : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -445,12 +445,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_organizationKey" name="property_organizationKey" class="anchor"></a>
+            <a id="property_organizationKey" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$organizationKey</h3>
                 <pre class="signature">$organizationKey : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -471,12 +471,12 @@
 
                                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_obj" name="property_obj" class="anchor"></a>
+            <a id="property_obj" class="anchor"></a>
             <article class="property">
                 <h3 class="protected ">$obj</h3>
                 <pre class="signature">$obj : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -497,12 +497,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_lastRequestID" name="property_lastRequestID" class="anchor"></a>
+            <a id="property_lastRequestID" class="anchor"></a>
             <article class="property">
                 <h3 class="protected ">$lastRequestID</h3>
                 <pre class="signature">$lastRequestID : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -521,8 +521,8 @@
         </aside>
     </div>
 
-                                            
-                                    <a id="methods" name="methods"></a>
+
+                                    <a id="methods"></a>
             <div class="row-fluid">
                 <div class="span8 content class"><h2>Methods</h2></div>
                 <aside class="span4 detailsbar"></aside>
@@ -530,20 +530,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_get" name="method_get" class="anchor"></a>
+            <a id="method_get" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">get()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">get() : \FuelSdk\ET_Get</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/FuelSdk.ET_Get.html">\FuelSdk\ET_Get</a>
                                             &mdash; <p>Object of type ET_Get which contains http status code, response, etc from the GET SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -561,20 +561,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_getMoreResults" name="method_getMoreResults" class="anchor"></a>
+            <a id="method_getMoreResults" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">getMoreResults()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getMoreResults() : \FuelSdk\ET_Continue</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/FuelSdk.ET_Continue.html">\FuelSdk\ET_Continue</a>
                                             &mdash; <p>returns more response from the SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -592,20 +592,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_info" name="method_info" class="anchor"></a>
+            <a id="method_info" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">info()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">info() : \FuelSdk\ET_Info</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/FuelSdk.ET_Info.html">\FuelSdk\ET_Info</a>
                                             &mdash; <p>returns information from the SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -623,17 +623,17 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <a id="method___construct" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__construct() </pre>
                 <p><em>Initializes a new instance of the class and set the since last batch to true.</em></p>
-                
 
-                
-                
-                				
+
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">

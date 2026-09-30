@@ -11,7 +11,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
-    
+
     <!--[if lt IE 9]>
     <script src="../js/html5.js"></script>
     <![endif]-->
@@ -24,11 +24,11 @@
     <script type="text/javascript">
     function loadExternalCodeSnippets() {
         Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
-            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-            var language = 'php';
+            const src = pre.getAttribute('data-src');
+            const extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            const language = 'php';
 
-            var code = document.createElement('code');
+            const code = document.createElement('code');
             code.className = 'language-' + language;
 
             pre.textContent = '';
@@ -37,7 +37,7 @@
 
             pre.appendChild(code);
 
-            var xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
 
             xhr.open('GET', src, true);
 
@@ -159,7 +159,7 @@
             <div id="namespace-1065055067" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
-                    
+
                     <ul>
                                                                                                     <li class="class"><a href="../classes/FuelSdk.ET_Asset.html">ET_Asset</a></li>
                                                     <li class="class"><a href="../classes/FuelSdk.ET_BaseObject.html">ET_BaseObject</a></li>
@@ -221,7 +221,7 @@
         </div>
     </div>
 
-                    
+
                     <ul>
                                                                                             </ul>
                 </div>
@@ -242,9 +242,9 @@
 
                     <h1><small>\FuelSdk</small>ET_Info</h1>
                     <p><em>This class Provides info about a object like Campaign, Asset, DataExtension, etc.</em></p>
-                    
-                    
-                                        
+
+
+
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
@@ -299,8 +299,8 @@
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
-                                        
-                    
+
+
                     <dl>
                         <dt>File</dt>
                             <dd><a href="../files/ET_Info.html"><div class="path-wrapper">ET_Info.php</div></a></dd>
@@ -308,15 +308,15 @@
                             <dd><div class="namespace-wrapper">Default</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                
+
                                         <div class="namespace-wrapper"><a href="../classes/FuelSdk.ET_Constructor.html">\FuelSdk\ET_Constructor</a></div>
                                                                                                     <div class="namespace-wrapper">\FuelSdk\ET_Info</div>
                             </dd>
 
-                        
-                        
-                        
-                        
+
+
+
+
                                                                         </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
@@ -325,8 +325,8 @@
                 </aside>
             </div>
 
-                        
-                                    <a id="properties" name="properties"></a>
+
+                                    <a id="properties"></a>
             <div class="row-fluid">
                 <div class="span8 content class">
                     <h2>Properties</h2>
@@ -336,12 +336,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_status" name="property_status" class="anchor"></a>
+            <a id="property_status" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$status</h3>
                 <pre class="signature">$status : boolean</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 boolean
@@ -362,12 +362,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_code" name="property_code" class="anchor"></a>
+            <a id="property_code" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$code</h3>
                 <pre class="signature">$code : integer</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 integer
@@ -388,12 +388,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_message" name="property_message" class="anchor"></a>
+            <a id="property_message" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$message</h3>
                 <pre class="signature">$message : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -414,12 +414,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_results" name="property_results" class="anchor"></a>
+            <a id="property_results" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$results</h3>
                 <pre class="signature">$results : \FuelSdk\stdClass</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 \FuelSdk\stdClass
@@ -440,12 +440,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_request_id" name="property_request_id" class="anchor"></a>
+            <a id="property_request_id" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$request_id</h3>
                 <pre class="signature">$request_id : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -466,12 +466,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_moreResults" name="property_moreResults" class="anchor"></a>
+            <a id="property_moreResults" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$moreResults</h3>
                 <pre class="signature">$moreResults : boolean</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 boolean
@@ -490,8 +490,8 @@
         </aside>
     </div>
 
-                                                            
-                                    <a id="methods" name="methods"></a>
+
+                                    <a id="methods"></a>
             <div class="row-fluid">
                 <div class="span8 content class"><h2>Methods</h2></div>
                 <aside class="span4 detailsbar"></aside>
@@ -499,13 +499,13 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <a id="method___construct" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__construct(\FuelSdk\ET_Client  <span class="argument">$authStub</span>, string  <span class="argument">$objType</span>, boolean  <span class="argument">$extended = false</span>) </pre>
                 <p><em>Initializes a new instance of the class.</em></p>
-                
+
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -525,9 +525,9 @@
                                 <td><p>If true extended properties will be stored in the results, else regular properties will be stored. By default false.</p></td>
                             </tr>
                                             </table>
-                
-                
-                				
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">

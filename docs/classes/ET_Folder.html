@@ -11,7 +11,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
-    
+
     <!--[if lt IE 9]>
     <script src="../js/html5.js"></script>
     <![endif]-->
@@ -24,11 +24,11 @@
     <script type="text/javascript">
     function loadExternalCodeSnippets() {
         Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
-            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-            var language = 'php';
+            const src = pre.getAttribute('data-src');
+            const extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            const language = 'php';
 
-            var code = document.createElement('code');
+            const code = document.createElement('code');
             code.className = 'language-' + language;
 
             pre.textContent = '';
@@ -37,7 +37,7 @@
 
             pre.appendChild(code);
 
-            var xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
 
             xhr.open('GET', src, true);
 
@@ -142,7 +142,7 @@
             <div id="namespace-798283103" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
-                    
+
                     <ul>
                                                                                                     <li class="class"><a href="../classes/ET_Asset.html">ET_Asset</a></li>
                                                     <li class="class"><a href="../classes/ET_BaseObject.html">ET_BaseObject</a></li>
@@ -212,9 +212,9 @@
 
                     <h1><small>\</small>ET_Folder</h1>
                     <p><em>This class represents a folder in a Marketing Cloud account.</em></p>
-                    
-                    
-                                        
+
+
+
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
@@ -275,8 +275,8 @@
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
-                                        
-                    
+
+
                     <dl>
                         <dt>File</dt>
                             <dd><a href="../files/ET_Folder.html"><div class="path-wrapper">ET_Folder.php</div></a></dd>
@@ -284,19 +284,19 @@
                             <dd><div class="namespace-wrapper">Default</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
                                         <div class="namespace-wrapper"><a href="../classes/ET_BaseObject.html">\ET_BaseObject</a></div>
-                                                                    
+
                                         <div class="namespace-wrapper"><a href="../classes/ET_GetSupport.html">\ET_GetSupport</a></div>
-                                                                    
+
                                         <div class="namespace-wrapper"><a href="../classes/ET_CUDSupport.html">\ET_CUDSupport</a></div>
                                                                                                     <div class="namespace-wrapper">\ET_Folder</div>
                             </dd>
 
-                        
-                        
-                        
-                        
+
+
+
+
                                                                         </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
@@ -305,8 +305,8 @@
                 </aside>
             </div>
 
-                        
-                                    <a id="properties" name="properties"></a>
+
+                                    <a id="properties"></a>
             <div class="row-fluid">
                 <div class="span8 content class">
                     <h2>Properties</h2>
@@ -316,12 +316,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_authStub" name="property_authStub" class="anchor"></a>
+            <a id="property_authStub" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$authStub</h3>
                 <pre class="signature">$authStub : \ET_Client</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 <a href="../classes/ET_Client.html">\ET_Client</a>
@@ -342,12 +342,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_props" name="property_props" class="anchor"></a>
+            <a id="property_props" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$props</h3>
                 <pre class="signature">$props : array</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 array
@@ -368,12 +368,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_filter" name="property_filter" class="anchor"></a>
+            <a id="property_filter" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$filter</h3>
                 <pre class="signature">$filter : array</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 array
@@ -394,12 +394,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_organizationId" name="property_organizationId" class="anchor"></a>
+            <a id="property_organizationId" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$organizationId</h3>
                 <pre class="signature">$organizationId : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -420,12 +420,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_organizationKey" name="property_organizationKey" class="anchor"></a>
+            <a id="property_organizationKey" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$organizationKey</h3>
                 <pre class="signature">$organizationKey : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -446,12 +446,12 @@
 
                                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_obj" name="property_obj" class="anchor"></a>
+            <a id="property_obj" class="anchor"></a>
             <article class="property">
                 <h3 class="protected ">$obj</h3>
                 <pre class="signature">$obj : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -472,12 +472,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_lastRequestID" name="property_lastRequestID" class="anchor"></a>
+            <a id="property_lastRequestID" class="anchor"></a>
             <article class="property">
                 <h3 class="protected ">$lastRequestID</h3>
                 <pre class="signature">$lastRequestID : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -496,8 +496,8 @@
         </aside>
     </div>
 
-                                            
-                                    <a id="methods" name="methods"></a>
+
+                                    <a id="methods"></a>
             <div class="row-fluid">
                 <div class="span8 content class"><h2>Methods</h2></div>
                 <aside class="span4 detailsbar"></aside>
@@ -505,20 +505,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_post" name="method_post" class="anchor"></a>
+            <a id="method_post" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">post()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">post() : \ET_Post</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/ET_Post.html">\ET_Post</a>
                                             &mdash; <p>Object of type ET_Post which contains http status code, response, etc from the POST SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -536,20 +536,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_patch" name="method_patch" class="anchor"></a>
+            <a id="method_patch" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">patch()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">patch() : \ET_Patch</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/ET_Patch.html">\ET_Patch</a>
                                             &mdash; <p>Object of type ET_Patch which contains http status code, response, etc from the PATCH SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -567,20 +567,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_delete" name="method_delete" class="anchor"></a>
+            <a id="method_delete" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">delete()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">delete() : \ET_Delete</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/ET_Delete.html">\ET_Delete</a>
                                             &mdash; <p>Object of type ET_Delete which contains http status code, response, etc from the DELETE SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -598,20 +598,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_get" name="method_get" class="anchor"></a>
+            <a id="method_get" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">get()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">get() : \ET_Get</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/ET_Get.html">\ET_Get</a>
                                             &mdash; <p>Object of type ET_Get which contains http status code, response, etc from the GET SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -629,20 +629,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_getMoreResults" name="method_getMoreResults" class="anchor"></a>
+            <a id="method_getMoreResults" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">getMoreResults()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getMoreResults() : \ET_Continue</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/ET_Continue.html">\ET_Continue</a>
                                             &mdash; <p>returns more response from the SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -660,20 +660,20 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_info" name="method_info" class="anchor"></a>
+            <a id="method_info" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">info()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">info() : \ET_Info</pre>
                 <p><em></em></p>
-                
 
-                
-                
+
+
+
                                     <h4>Returns</h4>
                     <a href="../classes/ET_Info.html">\ET_Info</a>
                                             &mdash; <p>returns information from the SOAP service</p>
-                                    				
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -691,17 +691,17 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <a id="method___construct" class="anchor"></a>
             <article class="method">
                 <h3 class="public ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__construct() </pre>
                 <p><em>Initializes a new instance of the class and sets the obj property of parent.</em></p>
-                
 
-                
-                
-                				
+
+
+
+
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -764,7 +764,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on 
+                    on
 Warning: date_default_timezone_get(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in /Users/smunuswami/Documents/workspace/FuelSDK-PHP/vendor/twig/twig/lib/Twig/Extension/Core.php on line 92
 July 14th, 2017 at 19:17.
                 </section>

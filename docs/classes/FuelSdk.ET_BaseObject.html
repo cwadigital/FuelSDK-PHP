@@ -11,7 +11,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
-    
+
     <!--[if lt IE 9]>
     <script src="../js/html5.js"></script>
     <![endif]-->
@@ -24,11 +24,11 @@
     <script type="text/javascript">
     function loadExternalCodeSnippets() {
         Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
-            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-            var language = 'php';
+            const src = pre.getAttribute('data-src');
+            const extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            const language = 'php';
 
-            var code = document.createElement('code');
+            const code = document.createElement('code');
             code.className = 'language-' + language;
 
             pre.textContent = '';
@@ -37,7 +37,7 @@
 
             pre.appendChild(code);
 
-            var xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
 
             xhr.open('GET', src, true);
 
@@ -159,7 +159,7 @@
             <div id="namespace-1894402193" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
-                    
+
                     <ul>
                                                                                                     <li class="class"><a href="../classes/FuelSdk.ET_Asset.html">ET_Asset</a></li>
                                                     <li class="class"><a href="../classes/FuelSdk.ET_BaseObject.html">ET_BaseObject</a></li>
@@ -221,7 +221,7 @@
         </div>
     </div>
 
-                    
+
                     <ul>
                                                                                             </ul>
                 </div>
@@ -242,9 +242,9 @@
 
                     <h1><small>\FuelSdk</small>ET_BaseObject</h1>
                     <p><em>This class represents the base object for SOAP operation.</em></p>
-                    
-                    
-                                        
+
+
+
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
@@ -299,8 +299,8 @@
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
-                                        
-                    
+
+
                     <dl>
                         <dt>File</dt>
                             <dd><a href="../files/ET_BaseObject.html"><div class="path-wrapper">ET_BaseObject.php</div></a></dd>
@@ -311,10 +311,10 @@
                                                                                                                                                                     <div class="namespace-wrapper">\FuelSdk\ET_BaseObject</div>
                             </dd>
 
-                        
-                        
-                        
-                        
+
+
+
+
                                                                         </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
@@ -323,8 +323,8 @@
                 </aside>
             </div>
 
-                        
-                                    <a id="properties" name="properties"></a>
+
+                                    <a id="properties"></a>
             <div class="row-fluid">
                 <div class="span8 content class">
                     <h2>Properties</h2>
@@ -334,12 +334,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_authStub" name="property_authStub" class="anchor"></a>
+            <a id="property_authStub" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$authStub</h3>
                 <pre class="signature">$authStub : \FuelSdk\ET_Client</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 <a href="../classes/FuelSdk.ET_Client.html">\FuelSdk\ET_Client</a>
@@ -358,12 +358,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_props" name="property_props" class="anchor"></a>
+            <a id="property_props" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$props</h3>
                 <pre class="signature">$props : array</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 array
@@ -382,12 +382,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_filter" name="property_filter" class="anchor"></a>
+            <a id="property_filter" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$filter</h3>
                 <pre class="signature">$filter : array</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 array
@@ -406,12 +406,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_organizationId" name="property_organizationId" class="anchor"></a>
+            <a id="property_organizationId" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$organizationId</h3>
                 <pre class="signature">$organizationId : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -430,12 +430,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_organizationKey" name="property_organizationKey" class="anchor"></a>
+            <a id="property_organizationKey" class="anchor"></a>
             <article class="property">
                 <h3 class="public ">$organizationKey</h3>
                 <pre class="signature">$organizationKey : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -454,12 +454,12 @@
 
                                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_obj" name="property_obj" class="anchor"></a>
+            <a id="property_obj" class="anchor"></a>
             <article class="property">
                 <h3 class="protected ">$obj</h3>
                 <pre class="signature">$obj : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -478,12 +478,12 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="property_lastRequestID" name="property_lastRequestID" class="anchor"></a>
+            <a id="property_lastRequestID" class="anchor"></a>
             <article class="property">
                 <h3 class="protected ">$lastRequestID</h3>
                 <pre class="signature">$lastRequestID : string</pre>
                 <p><em></em></p>
-                
+
 
                                 <h4>Type</h4>
                 string
@@ -500,7 +500,7 @@
         </aside>
     </div>
 
-                                            
+
                                 </div>
     </section>
 
