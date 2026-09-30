@@ -3,6 +3,7 @@ namespace FuelSdk;
 /**
  * This class represents the base object for REST operation.
  */
+#[\AllowDynamicProperties]
 class ET_BaseObjectRest
 {
    /**
@@ -33,4 +34,3 @@ class ET_BaseObjectRest
      * @var      string[]    $urlPropsRequired array of string having only required fields*/
     protected $urlPropsRequired;
 }
-?>

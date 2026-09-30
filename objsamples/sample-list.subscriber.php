@@ -6,15 +6,15 @@ use FuelSdk\ET_List_Subscriber;
 use FuelSdk\ET_List;
 
 try {
-	
+
 	// NOTE: These examples only work in accounts where the SubscriberKey functionality is not enabled
 	//       SubscriberKey will need to be included in the props if that feature is enabled
-	
+
 	$NewListName = "PHPSDKListSubscriber";
 	$SubscriberTestEmail = "PHPSDKListSubscriber@bh.exacttarget.com";
 	$myclient = new ET_Client();
 
-	
+
 	// Create List
 	print "Create List \n";
 	$postContent = new ET_List();
@@ -23,15 +23,15 @@ try {
 	$postResponse = $postContent->post();
 	print_r('Post Status: '.($postResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResponse->code."\n";
-	print 'Message: '.$postResponse->message."\n";	
+	print 'Message: '.$postResponse->message."\n";
 	print 'Results Length: '. count($postResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResponse->results);
 	print "\n---------------\n";
-	
+
 	if ($postResponse->status){
 
-		$newListID = $postResponse->results[0]->NewID;	
+		$newListID = $postResponse->results[0]->NewID;
 		// Create Subscriber on List
 		print "Create Subscriber on List \n";
 		$subCreate = new ET_Subscriber();
@@ -40,15 +40,15 @@ try {
 		$postResult = $subCreate->post();
 		print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 		print 'Code: '.$postResult->code."\n";
-		print 'Message: '.$postResult->message."\n";	
+		print 'Message: '.$postResult->message."\n";
 		print 'Results Length: '. count($postResult->results)."\n";
 		print 'Results: '."\n";
 		print_r($postResult->results);
 		print "\n---------------\n";
-		
+
 		if (!$postResult->status) {
 			// If the subscriber already exists in the account then we need to do an update.
-			// Update Subscriber On List 
+			// Update Subscriber On List
 			if ($postResult->results[0]->ErrorCode == "12014"){
 				// Update Subscriber to add to List
 				print "Update Subscriber to add to List \n";
@@ -58,12 +58,12 @@ try {
 				$patchResult = $subPatch->patch();
 				print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 				print 'Code: '.$patchResult->code."\n";
-				print 'Message: '.$patchResult->message."\n";	
+				print 'Message: '.$patchResult->message."\n";
 				print 'Results Length: '. count($patchResult->results)."\n";
 				print 'Results: '."\n";
 				print_r($patchResult->results);
 				print "\n---------------\n";
-			}			
+			}
 		}
 
 		// Retrieve all Subscribers on the List
@@ -80,8 +80,8 @@ try {
 		print 'Results Length: '. count($getResponse->results)."\n";
 		print 'Results: '."\n";
 		print_r($getResponse->results);
-		print "\n---------------\n";		
-		
+		print "\n---------------\n";
+
 		// Delete List
 		print "Delete List \n";
 		$deleteList = new ET_List();
@@ -90,7 +90,7 @@ try {
 		$deleteResponse = $deleteList->delete();
 		print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 		print 'Code: '.$deleteResponse->code."\n";
-		print 'Message: '.$deleteResponse->message."\n";	
+		print 'Message: '.$deleteResponse->message."\n";
 		print 'Results Length: '. count($deleteResponse->results)."\n";
 		print 'Results: '."\n";
 		print_r($deleteResponse->results);
@@ -101,7 +101,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

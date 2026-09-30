@@ -3,7 +3,7 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_ContentArea;
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	// Retrieve All ContentArea with GetMoreResults
@@ -18,7 +18,7 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve All ContentArea with GetMoreResults \n";
 		$getResponse = $getContent->GetMoreResults();
@@ -28,10 +28,10 @@ try {
 		print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 		print 'Results Length: '. count($getResponse->results)."\n";
 		print "\n---------------\n";
-	}	
-	
+	}
+
 	$NameOfTestContentArea = "PHPSDKContentArea";
-	
+
 	// Create ContentArea
 	print "Create ContentArea \n";
 	$postContent = new ET_ContentArea();
@@ -40,7 +40,7 @@ try {
 	$postResult = $postContent->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Results Length: '. count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
@@ -70,7 +70,7 @@ try {
 	$patchResult = $subPatch->patch();
 	print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$patchResult->code."\n";
-	print 'Message: '.$patchResult->message."\n";	
+	print 'Message: '.$patchResult->message."\n";
 	print 'Results Length: '. count($patchResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($patchResult->results);
@@ -91,7 +91,7 @@ try {
 	print 'Results: '."\n";
 	print_r($getResponse->results);
 	print "\n---------------\n";
-	
+
 	// Delete ContentArea
 	print "Delete ContentArea \n";
 	$deleteContent = new ET_ContentArea();
@@ -100,12 +100,12 @@ try {
 	$deleteResponse = $deleteContent->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
 	print "\n---------------\n";
-	
+
 	// Retrieve ContentArea to confirm deletion
 	print "Retrieve ContentArea to confirm deletion \n";
 	$getContent = new ET_ContentArea();
@@ -128,7 +128,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

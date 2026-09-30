@@ -1,8 +1,9 @@
 <?php
 namespace FuelSdk;
 /**
- * This class represents the contructor for all web service (SOAP/REST) operation and holds HTTP status code, response, result, etc.
+ * This class represents the constructor for all web service (SOAP/REST) operation and holds HTTP status code, response, result, etc.
  */
+#[\AllowDynamicProperties]
 class ET_Constructor
 {
     /**
@@ -11,26 +12,26 @@ class ET_Constructor
 	public $status;
     /**
      * @var 	int 			holds the HTTP status code e.g. 200, 404, etc
-    */	
+    */
 	public $code;
     /**
      * @var 	string 			holds error message for SOAP call, else holds raw response if json_decode fails
-    */	
+    */
 	public $message;
     /**
      * @var stdClass Object		contains the complete result of the web service operation
-    */	
+    */
 	public $results;
     /**
      * @var string        		the request identifier
-    */	
+    */
 	public $request_id;
     /**
-     * @var bool 			    whether more results are available or not   
-    */	
-	public $moreResults;	
-	
-	/** 
+     * @var bool 			    whether more results are available or not
+    */
+	public $moreResults;
+
+	/**
 	* Initializes a new instance of the class.
 	* @param 	string 		$requestresponse 	The response from the request
 	* @param 	int 		$httpcode 			The HTTP status code e.g. 200, 404. etc
@@ -38,9 +39,9 @@ class ET_Constructor
 	*/
 	function __construct($requestresponse, $httpcode, $restcall = false)
 	{
-		
+
 		$this->code = $httpcode;
-		
+
 		if (!$restcall) {
 			if(is_soap_fault($requestresponse)) {
 				$this->status = false;
@@ -60,8 +61,8 @@ class ET_Constructor
 				$this->results = json_decode($requestresponse);
 			} else  {
 				$this->message = $requestresponse;
-			}						
+			}
 		}
 	}
 }
-?>
+

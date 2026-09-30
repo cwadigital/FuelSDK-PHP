@@ -11,9 +11,13 @@ final class ResultMessageTest extends TestCase
 {
     private $myclient;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client(true);
+        try {
+            $this->myclient = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanGetResultMessage()

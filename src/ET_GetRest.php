@@ -9,7 +9,7 @@ namespace FuelSdk;
  */
 class ET_GetRest extends ET_Constructor
 {
-	/** 
+	/**
 	* Initializes a new instance of the class.
 	* @param 	ET_Client   $authStub 	The ET client object which performs the auth token, refresh token using clientID clientSecret
 	* @param 	string 		$url 		The endpoint URL
@@ -19,9 +19,8 @@ class ET_GetRest extends ET_Constructor
 	{
 //		$restResponse = ET_Util::restGet($url, $authStub);
 		$restResponse = ET_Util::restGet($url, $authStub, $qs);
-		
+
 		$this->moreResults = false;
 		parent::__construct($restResponse->body, $restResponse->httpcode, true);
 	}
 }
-?>

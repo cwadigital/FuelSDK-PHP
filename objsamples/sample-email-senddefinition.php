@@ -3,15 +3,15 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Email_SendDefinition;
 
-try {	
+try {
 	$myclient = new ET_Client();
-	
+
 	$NewSendDefinitionName = "PHPSDKSendDefinition";
 	$SendableDataExtensionCustomerKey = "F6F3871A-D124-499B-BBF5-3EFC0E827A51";
 	$EmailIDForSendDefinition = "3113962";
 	$ListIDForSendDefinition = "1729515";
 	$SendClassificationCustomerKey = "2239";
-	
+
 	print "Retrieve Send Definition Details \n";
 	$getSendDefinition = new ET_Email_SendDefinition();
 	$getSendDefinition->authStub = $myclient;
@@ -23,7 +23,7 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	print "Create SendDefinition to DataExtension \n";
 	$postSendDefinition = new ET_Email_SendDefinition();
 	$postSendDefinition->authStub = $myclient;
@@ -36,12 +36,12 @@ try {
 	$postResult = $postSendDefinition->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Results Length: '. count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
 	print "\n---------------\n";
-	
+
 	print "Delete SendDefinition \n";
 	$deleteSendDefinition = new ET_Email_SendDefinition();
 	$deleteSendDefinition->authStub = $myclient;
@@ -49,12 +49,12 @@ try {
 	$deleteResponse = $deleteSendDefinition->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
 	print "\n---------------\n";
-	
+
 	print "Create SendDefinition to List \n";
 	$postSendDefinition = new ET_Email_SendDefinition();
 	$postSendDefinition->authStub = $myclient;
@@ -67,12 +67,12 @@ try {
 	$postResult = $postSendDefinition->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Results Length: '. count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
 	print "\n---------------\n";
-	
+
 	print "Send SendDefinition \n";
 	$sendSendDefinition = new ET_Email_SendDefinition();
 	$sendSendDefinition->authStub = $myclient;
@@ -80,12 +80,12 @@ try {
 	$sendResponse = $sendSendDefinition->send();
 	print_r('Send Status: '.($sendResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$sendResponse->code."\n";
-	print 'Message: '.$sendResponse->message."\n";	
+	print 'Message: '.$sendResponse->message."\n";
 	print 'Results Length: '. count($sendResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($sendResponse->results);
 	print "\n---------------\n";
-	
+
 	print "Check Status using the same instance of ET_Email::SendDefinition as used with start method \n";
 	$emailStatus = "";
 	while ($sendResponse->status && $emailStatus != "Canceled" && $emailStatus != "Complete") {
@@ -95,14 +95,14 @@ try {
 		$statusResponse = $sendSendDefinition->status();
 		print_r('Send Status: '.($statusResponse->status ? 'true' : 'false')."\n");
 		print 'Code: '.$statusResponse->code."\n";
-		print 'Message: '.$statusResponse->message."\n";	
+		print 'Message: '.$statusResponse->message."\n";
 		print 'Results Length: '. count($statusResponse->results)."\n";
 		print 'Results: '."\n";
 		print_r($statusResponse->results);
 		print "\n---------------\n";
 		$emailStatus = $statusResponse->results[0]->Status;
 	}
-	
+
 	print "Delete SendDefinition \n";
 	$deleteSendDefinition = new ET_Email_SendDefinition();
 	$deleteSendDefinition->authStub = $myclient;
@@ -110,7 +110,7 @@ try {
 	$deleteResponse = $deleteSendDefinition->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
@@ -120,7 +120,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

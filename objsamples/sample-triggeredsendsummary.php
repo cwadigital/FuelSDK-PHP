@@ -7,12 +7,12 @@ use FuelSdk\ET_TriggeredSendSummary;
 try {
 
 	$myclient = new ET_Client();
-	
+
 	//Triggered Send Testing
 	print_r("Get all TriggeredSendSummary \n");
 	$trigger = new ET_TriggeredSendSummary();
 	$trigger->authStub = $myclient;
-	//$trigger->props = array("Bounces", "Clicks", "Queued");	
+	//$trigger->props = array("Bounces", "Clicks", "Queued");
 	$getResult = $trigger->get();
 	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$getResult->code."\n";
@@ -27,4 +27,3 @@ try {
 }
 
 
-?>

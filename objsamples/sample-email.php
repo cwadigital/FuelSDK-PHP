@@ -3,7 +3,7 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Email;
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	// Retrieve All Email with GetMoreResults
@@ -18,7 +18,7 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve All Email with GetMoreResults \n";
 		$getResponse = $getEmail->GetMoreResults();
@@ -28,10 +28,10 @@ try {
 		print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 		print 'Results Length: '. count($getResponse->results)."\n";
 		print "\n---------------\n";
-	}	
-	
+	}
+
 	$NameOfTestEmail = "PHPSDKEmail".uniqid();
-	
+
 	// Create Email
 	print "Create Email \n";
 	$postEmail = new ET_Email();
@@ -40,7 +40,7 @@ try {
 	$postResult = $postEmail->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Results Length: '. count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
@@ -70,7 +70,7 @@ try {
 	$patchResult = $patchEmail->patch();
 	print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$patchResult->code."\n";
-	print 'Message: '.$patchResult->message."\n";	
+	print 'Message: '.$patchResult->message."\n";
 	print 'Results Length: '. count($patchResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($patchResult->results);
@@ -91,7 +91,7 @@ try {
 	print 'Results: '."\n";
 	print_r($getResponse->results);
 	print "\n---------------\n";
-/*	
+/*
 	// Delete Email
 	print "Delete Email \n";
 	$deleteEmail = new ET_Email();
@@ -100,12 +100,12 @@ try {
 	$deleteResponse = $deleteEmail->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
 	print "\n---------------\n";
-*/	
+*/
 	// Retrieve Email to confirm deletion
 	print "Retrieve Email to confirm deletion \n";
 	$getEmail = new ET_Email();
@@ -128,7 +128,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

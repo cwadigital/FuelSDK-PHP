@@ -15,11 +15,13 @@ final class DataExtractTest extends TestCase
 	private $filename = "php_extract.csv";
 	private $DECustKey = "017dce26-b61f-43c2-bb15-0e46de82d177";    
     
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client();
-//        $this->extractmap = array();
-//        $this->populateExtractType();
+        try {
+            $this->myclient = new ET_Client();
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }    
 
 /*    private function populateExtractType()

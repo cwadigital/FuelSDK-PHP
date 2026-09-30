@@ -13,10 +13,14 @@ final class ProfileAttributeTest extends TestCase
     private $myclient;
 	private $NameOfAttribute;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client(true);
-        $this->NameOfAttribute = "PHPSDKTestAttribute";//.uniqid();        
+        $this->NameOfAttribute = "PHPSDKTestAttribute";//.uniqid();
+        try {
+            $this->myclient = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateProfileAttribute()

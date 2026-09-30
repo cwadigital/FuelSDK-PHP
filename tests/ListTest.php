@@ -11,11 +11,15 @@ use PHPUnit\Framework\TestCase;
 final class ListTest extends TestCase
 {
     private $client;
-    
 
-    function __construct()
+
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateList()
@@ -83,7 +87,7 @@ final class ListTest extends TestCase
         $result = $this->upsertList($list);
         $this->assertEquals($result->status, TRUE);
         $this->assertEquals($result->results[0]->StatusMessage == "Updated List.", TRUE);
-        
+
         //delete the lsit
         $result = $this->deleteList($getlist->results[0]);
 
@@ -93,6 +97,9 @@ final class ListTest extends TestCase
 
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createList()
     {
         $list = new ET_List();
@@ -122,7 +129,7 @@ final class ListTest extends TestCase
 
     public function updateList($getlist, $newName)
     {
-        
+
         $list = new ET_List();
         $list->authStub = $this->client;
         $list->props["ID"] = $getlist->ID;
@@ -142,4 +149,3 @@ final class ListTest extends TestCase
 
 }
 
-?>

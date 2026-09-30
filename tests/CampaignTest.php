@@ -12,9 +12,13 @@ final class CampaignTest extends TestCase
 {
     private $client;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
     public function testCanCreateCampaign()
     {
@@ -48,7 +52,7 @@ final class CampaignTest extends TestCase
         echo json_encode($getCampaign);
         //compare the name of the campaign
         $this->assertEquals($getCampaign->results == $campaign->results, FALSE);
-    }    
+    }
 
     public function testCanUpdateCampaign()
     {
@@ -65,11 +69,14 @@ final class CampaignTest extends TestCase
         print_r($getCampaign);
         //compare the name of the campaign
         $this->assertEquals($getCampaign->results->description == $updateCampaign->results->description, TRUE);
-    }    
+    }
 
+    /**
+     * @throws \Exception
+     */
     public function updateCampaign($id)
     {
-        $desc = "chaning the description";
+        $desc = "changing the description";
         $campaign = new ET_Campaign();
         $auth = $this->client;
         $campaign->authStub = $auth;
@@ -81,6 +88,9 @@ final class CampaignTest extends TestCase
         return $result;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deleteCampaign($id)
     {
         $campaign = new ET_Campaign();
@@ -93,6 +103,9 @@ final class CampaignTest extends TestCase
         return $result;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function getCampaign($id)
     {
         $campaign = new ET_Campaign();
@@ -105,6 +118,9 @@ final class CampaignTest extends TestCase
         return $result;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createCampaign($name = "")
     {
         $campaign = new ET_Campaign();

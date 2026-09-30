@@ -3,14 +3,14 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_TriggeredSend;
 
-try {	
+try {
 	$myclient = new ET_Client();
-	
+
 	//Triggered Send Testing
 	print_r("Get all TriggeredSendDefinitions \n");
 	$trigger = new ET_TriggeredSend();
 	$trigger->authStub = $myclient;
-	$trigger->props = array("CustomerKey", "Name", "TriggeredSendStatus");	
+	$trigger->props = array("CustomerKey", "Name", "TriggeredSendStatus");
 	$getResult = $trigger->get();
 	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$getResult->code."\n";
@@ -19,10 +19,10 @@ try {
 	//print 'Results: '."\n";
 	//print_r($getResult->results);
 	print "\n---------------\n";
-	
-	// Specify the name of a TriggeredSend that was setup for testing 
+
+	// Specify the name of a TriggeredSend that was setup for testing
 	// Do not use a production Triggered Send Definition
-	
+
 	$NameOfTestTS = "TEXTEXT";
 
 	// Pause a TriggeredSend
@@ -67,7 +67,7 @@ try {
 	print 'Results: '."\n";
 	print_r($patchResult->results);
 	print "\n---------------\n";
-		
+
 	// Retrieve Single TriggeredSend After setting back to active
 	print_r("Retrieve Single TriggeredSend After setting back to active\n");
 	$trigger = new ET_TriggeredSend();
@@ -83,7 +83,7 @@ try {
 	print_r($getResult->results);
 	print "\n---------------\n";
 
-	// Send an email with TriggeredSend 
+	// Send an email with TriggeredSend
 	print_r("Send an email using a triggered send \n");
 	$sendTrigger = new ET_TriggeredSend();
 	$sendTrigger->props = array('CustomerKey' => 'TEXTEXT');
@@ -114,7 +114,7 @@ try {
 	print_r($postResult->results);
 	print "\n---------------\n";
 
-	// Delete a TriggeredSend Definition 
+	// Delete a TriggeredSend Definition
 	print_r("Delete a TriggeredSend Definition \n");
 	$deleteTrig = new ET_TriggeredSend();
 	$deleteTrig->authStub = $myclient;
@@ -127,12 +127,12 @@ try {
 	print 'Results: '."\n";
 	print_r($deleteResult->results);
 	print "\n---------------\n";
-	
+
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

@@ -3,7 +3,7 @@
 //     include_once 'src/'.$class_name.'.php';
 // });
 namespace FuelSdk;
-use \Exception;
+use Exception;
 
 /**
  * This class represents the create, update, delete operation for SOAP service.
@@ -12,8 +12,13 @@ class ET_CUDSupport extends ET_GetSupport
 {
 
     /**
-    * @return ET_Post     Object of type ET_Post which contains http status code, response, etc from the POST SOAP service 
-    */
+     * @return ET_Post     Object of type ET_Post which contains http status code, response, etc from the POST SOAP service
+     * @throws Exception
+     * @throws Exception
+     * @throws Exception
+     * @throws Exception
+     * @throws Exception
+     */
 	public function post()
 	{
 		$originalProps = $this->props;
@@ -30,12 +35,12 @@ class ET_CUDSupport extends ET_GetSupport
 					$this->authStub->packageFolders = array();
 					foreach ($resultPackageFolder->results as $result){
 						$this->authStub->packageFolders[$result->ContentType] = $result->ID;
-					}	
+					}
 				} else {
 					throw new Exception('Unable to retrieve folders from account due to: '.$resultPackageFolder->message);
 				}
 			}
-			
+
 			if (!array_key_exists($this->folderMediaType,$this->authStub->packageFolders )){
 				if (is_null($this->authStub->parentFolders)) {
 					$parentFolders = new ET_Folder();
@@ -43,11 +48,11 @@ class ET_CUDSupport extends ET_GetSupport
 					$parentFolders->props = array("ID", "ContentType");
 					$parentFolders->filter = array("Property" => "ParentFolder.ID", "SimpleOperator" => "equals", "Value" => "0");
 					$resultParentFolders = $parentFolders->get();
-					if ($resultParentFolders->status) { 
+					if ($resultParentFolders->status) {
 						$this->authStub->parentFolders = array();
 						foreach ($resultParentFolders->results as $result){
 							$this->authStub->parentFolders[$result->ContentType] = $result->ID;
-						}	
+						}
 					} else {
 						throw new Exception('Unable to retrieve folders from account due to: '.$resultParentFolders->message);
 					}
@@ -63,35 +68,34 @@ class ET_CUDSupport extends ET_GetSupport
 				}
 			}
 			$this->props[$this->folderProperty] = $this->authStub->packageFolders[$this->folderMediaType];
-		} 
-		
+		}
+
 		$response = new ET_Post($this->authStub, $this->obj, $this->props);
 		$this->props = $originalProps;
 		return $response;
 	}
 
     /**
-    * @return ET_Patch     Object of type ET_Patch which contains http status code, response, etc from the PATCH SOAP service 
+    * @return ET_Patch     Object of type ET_Patch which contains http status code, response, etc from the PATCH SOAP service
     */
 	public function patch()
 	{
 		$originalProps = $this->props;
 		if (property_exists($this, 'folderProperty') && !is_null($this->folderProperty) && !is_null($this->folderId)){
 			$this->props[$this->folderProperty] = $this->folderId;
-		} 
+		}
 		$response = new ET_Patch($this->authStub, $this->obj, $this->props);
 		$this->props = $originalProps;
 		return $response;
 	}
-	
+
     /**
-    * @return ET_Delete     Object of type ET_Delete which contains http status code, response, etc from the DELETE SOAP service 
-    */ 	
+    * @return ET_Delete     Object of type ET_Delete which contains http status code, response, etc from the DELETE SOAP service
+    */
 	public function delete()
-	{	
+	{
 		$response = new ET_Delete($this->authStub, $this->obj, $this->props);
 		return $response;
-	}	
+	}
 }
 
-?>

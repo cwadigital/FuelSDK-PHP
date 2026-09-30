@@ -14,12 +14,11 @@ class ET_PutRest extends ET_Constructor
 	* @param 	ET_Client   $authStub 	The ET client object which performs the auth token, refresh token using clientID clientSecret
 	* @param 	string 		$url 		The endpoint URL
 	* @param 	array       $props 		Dictionary type array which may hold e.g. array('id' => '', 'key' => '')
-	*/	
+	*/
 	function __construct($authStub, $url, $props, $qs="")
 	{
-//		$restResponse = ET_Util::restPut($url, json_encode($props), $authStub);			
-		$restResponse = ET_Util::restPut($url, json_encode($props), $authStub, $qs);			
-		parent::__construct($restResponse->body, $restResponse->httpcode, true);							
+//		$restResponse = ET_Util::restPut($url, json_encode($props), $authStub);
+		$restResponse = ET_Util::restPut($url, json_encode($props), $authStub, $qs);
+		parent::__construct($restResponse->body, $restResponse->httpcode, true);
 	}
 }
-?>

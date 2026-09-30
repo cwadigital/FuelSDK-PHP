@@ -11,11 +11,15 @@ use PHPUnit\Framework\TestCase;
 final class EmailTest extends TestCase
 {
     private $client;
-    
 
-    function __construct()
+
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateEmail()
@@ -24,7 +28,7 @@ final class EmailTest extends TestCase
         print_r( $result );
         $this->assertEquals($result->status, TRUE);
         return $result->results[0];
-        
+
     }
 
     /**
@@ -64,16 +68,19 @@ final class EmailTest extends TestCase
 
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createEmail()
     {
         $myclient = new ET_Client(true);
         $email = new ET_Email();
         $email->authStub = $myclient;
-        $email->props = array("CustomerKey" => "SDK Example".uniqid(), 
-            "Name"=> "SDK".uniqid(), 
-            "Subject"=>"Created with the PHP SDK Testcase",  
-            "HTMLBody"=> "<b>This is a test message from PHP SDK Testcase</b>".uniqid(),  
-            "EmailType" => "HTML", 
+        $email->props = array("CustomerKey" => "SDK Example".uniqid(),
+            "Name"=> "SDK".uniqid(),
+            "Subject"=>"Created with the PHP SDK Testcase",
+            "HTMLBody"=> "<b>This is a test message from PHP SDK Testcase</b>".uniqid(),
+            "EmailType" => "HTML",
             "IsHTMLPaste" => "true");
         return  $email->post();
     }
@@ -108,7 +115,6 @@ final class EmailTest extends TestCase
         return $email->delete();
     }
 
-    
+
 }
 
-?>

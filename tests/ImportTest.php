@@ -15,11 +15,15 @@ final class ImportTest extends TestCase
 	private $SendableDataExtensionCustomerKey;
 	private $TaskResultID;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client(true);
         $this->NewImportName = "PHPSDKImport";
         $this->SendableDataExtensionCustomerKey = "92b0d93d-ee5f-e711-80d2-1402ec6b9528";
+        try {
+            $this->myclient = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateImportDefinition()

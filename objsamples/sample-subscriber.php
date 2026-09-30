@@ -3,14 +3,14 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Subscriber;
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	// NOTE: These examples only work in accounts where the SubscriberKey functionality is not enabled
 	//       SubscriberKey will need to be included in the props if that feature is enabled
-	
+
 	$SubscriberTestEmail = "PHPSDKExample@bh.exacttarget.com";
-	
+
 	// Create Subscriber
 	print "Create Subscriber \n";
 	$subCreate = new ET_Subscriber();
@@ -22,7 +22,7 @@ try {
 	$postResult = $subCreate->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Results Length: '. count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
@@ -52,7 +52,7 @@ try {
 	$patchResult = $subPatch->patch();
 	print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$patchResult->code."\n";
-	print 'Message: '.$patchResult->message."\n";	
+	print 'Message: '.$patchResult->message."\n";
 	print 'Results Length: '. count($patchResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($patchResult->results);
@@ -73,7 +73,7 @@ try {
 	print 'Results: '."\n";
 	print_r($getResult->results);
 	print "\n---------------\n";
-	
+
 	// Delete Subscriber
 	print "Delete Subscriber \n";
 	$subDelete = new ET_Subscriber();
@@ -82,12 +82,12 @@ try {
 	$deleteResult = $subDelete->delete();
 	print_r('Delete Status: '.($deleteResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResult->code."\n";
-	print 'Message: '.$deleteResult->message."\n";	
+	print 'Message: '.$deleteResult->message."\n";
 	print 'Results Length: '. count($deleteResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResult->results);
 	print "\n---------------\n";
-	
+
 	// Retrieve Subscriber to confirm deletion
 	print "Retrieve Subscriber to confirm deletion \n";
 	$retSub = new ET_Subscriber();
@@ -118,7 +118,7 @@ try {
 	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResult->results)."\n";
 	print "\n---------------\n";
-	
+
 	while ($getResult->moreResults) {
 		print "Continue Retrieve All Subcribers with GetMoreResults \n";
 		$getResult = $getSub->GetMoreResults();
@@ -128,14 +128,14 @@ try {
 		print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
 		print 'Results Length: '. count($getResult->results)."\n";
 		print "\n---------------\n";
-	}	
+	}
 	*/
 }
 catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

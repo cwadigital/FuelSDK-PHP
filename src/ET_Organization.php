@@ -9,7 +9,7 @@ namespace FuelSdk;
  */
 class ET_Organization extends ET_CUDSupport
 {
-	/** 
+	/**
 	* Initializes a new instance of the class and sets the obj property of parent.
 	*/
 	function __construct()
@@ -17,4 +17,3 @@ class ET_Organization extends ET_CUDSupport
 		$this->obj = "Account";
 	}
 }
-?>

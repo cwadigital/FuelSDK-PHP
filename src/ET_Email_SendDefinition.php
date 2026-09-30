@@ -14,23 +14,23 @@ class ET_Email_SendDefinition extends ET_CUDSupport
 	/** @var string|null 	contains last task ID if available */
 	public  $lastTaskID;
 
-	/** 
+	/**
 	* Initializes a new instance of the class.
 	*/
-	function __construct() 
+	function __construct()
 	{
 		$this->obj = "EmailSendDefinition";
 		$this->folderProperty = "CategoryID";
 		$this->folderMediaType = "userinitiatedsends";
 	}
 
-	/** 
+	/**
 	* Send this instance.
 	* @return ET_Perform     Object of type ET_Perform which contains http status code, response, etc from the START SOAP service
-	*/	
+	*/
 	function send()
 	{
-		$originalProps = $this->props;		
+		$originalProps = $this->props;
 		$response = new ET_Perform($this->authStub, $this->obj, 'start', $this->props);
 		if ($response->status) {
 			$this->lastTaskID = $response->results[0]->Task->ID;
@@ -39,10 +39,10 @@ class ET_Email_SendDefinition extends ET_CUDSupport
 		return $response;
 	}
 
-	/** 
+	/**
 	* Status of this instance.
-	* @return ET_Get     Object of type ET_Get which contains http status code, response, etc from the GET SOAP service 
-	*/	
+	* @return ET_Get     Object of type ET_Get which contains http status code, response, etc from the GET SOAP service
+	*/
 	function status()
 	{
 		$this->filter = array('Property' => 'ID','SimpleOperator' => 'equals','Value' => $this->lastTaskID);
@@ -51,4 +51,3 @@ class ET_Email_SendDefinition extends ET_CUDSupport
 		return $response;
 	}
 }
-?>

@@ -17,9 +17,8 @@ class ET_PatchRest extends ET_Constructor
 	*/
 	function __construct($authStub, $url, $props, $qs="")
 	{
-//		$restResponse = ET_Util::restPatch($url, json_encode($props), $authStub);			
-		$restResponse = ET_Util::restPatch($url, json_encode($props), $authStub, $qs);			
-		parent::__construct($restResponse->body, $restResponse->httpcode, true);							
+//		$restResponse = ET_Util::restPatch($url, json_encode($props), $authStub);
+		$restResponse = ET_Util::restPatch($url, json_encode($props), $authStub, $qs);
+		parent::__construct($restResponse->body, $restResponse->httpcode, true);
 	}
 }
-?>

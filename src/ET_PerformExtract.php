@@ -7,11 +7,17 @@ namespace FuelSdk;
  */
 class ET_PerformExtract extends ET_Constructor
 {
-	/**
-	* Initializes a new instance of the class.
-	* @param 	ET_Client   $authStub 	The ET client object which performs the auth token, refresh token using clientID clientSecret
-	* @param 	array       $props 		Dictionary type array of properties which may hold e.g. array('ID' => '', 'Parameters' => '')
-	*/
+    /**
+     * Initializes a new instance of the class.
+     *
+     * @param  ET_Client  $authStub  The ET client object which performs the auth token, refresh token using clientID clientSecret
+     * @param  array  $props  Dictionary type array of properties which may hold e.g. array('ID' => '', 'Parameters' => '')
+     *
+     * @throws \SoapFault
+     * @throws \Exception
+     * @throws \SoapFault
+     * @throws \SoapFault
+     */
 	function __construct($authStub, $props)
 	{
 		$authStub->refreshToken();
@@ -27,4 +33,3 @@ class ET_PerformExtract extends ET_Constructor
         $this->request_id = $return->RequestID;
 	}
 }
-?>

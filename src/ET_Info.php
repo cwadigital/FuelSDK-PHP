@@ -9,27 +9,33 @@ namespace FuelSdk;
  */
 class ET_Info extends ET_Constructor
 {
-	/** 
-	* Initializes a new instance of the class.
-	* @param 	ET_Client   $authStub 		The ET client object which performs the auth token, refresh token using clientID clientSecret
-	* @param    string      $objType 		Object name, e.g. "ImportDefinition", "DataExtension", etc
-	* @param 	bool 		$extended 		If true extended properties will be stored in the results, else regular properties will be stored. By default false.
-	*/
+    /**
+     * Initializes a new instance of the class.
+     *
+     * @param  ET_Client  $authStub  The ET client object which performs the auth token, refresh token using clientID clientSecret
+     * @param  string  $objType  Object name, e.g. "ImportDefinition", "DataExtension", etc
+     * @param  bool  $extended  If true extended properties will be stored in the results, else regular properties will be stored. By default false.
+     *
+     * @throws \SoapFault
+     * @throws \Exception
+     * @throws \SoapFault
+     * @throws \SoapFault
+     */
 	function __construct($authStub, $objType, $extended = false)
 	{
 		$authStub->refreshToken();
-		$drm = array(); 
-		$request = array(); 
-		$describeRequest = array(); 
-		
+		$drm = array();
+		$request = array();
+		$describeRequest = array();
+
 		$describeRequest["ObjectDefinitionRequest"] = array("ObjectType" => $objType);
 
 		$request["DescribeRequests"] = $describeRequest;
 		$drm["DefinitionRequestMsg"] = $request;
-		
+
 		$return = $authStub->__soapCall("Describe", $drm, null, null , $out_header);
 		parent::__construct($return, $authStub->__getLastResponseHTTPCode());
-		
+
 		if ($this->status){
 			if (property_exists($return->ObjectDefinition, "Properties")){
 
@@ -40,9 +46,8 @@ class ET_Info extends ET_Constructor
 					$this->results = $return->ObjectDefinition->Properties;
 				}
 			} else {
-				$this->status = false;				
+				$this->status = false;
 			}
-		}		
+		}
 	}
 }
-?>

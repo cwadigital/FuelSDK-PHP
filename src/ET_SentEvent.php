@@ -14,13 +14,12 @@ class ET_SentEvent extends ET_GetSupport
     */
 	public  $getSinceLastBatch;
 
-	/** 
+	/**
 	* Initializes a new instance of the class and set the since last batch to true.
-	*/	
-	function __construct() 
+	*/
+	function __construct()
 	{
 		$this->obj = "SentEvent";
 		$this->getSinceLastBatch = true;
 	}
 }
-?>

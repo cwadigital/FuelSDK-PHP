@@ -3,6 +3,7 @@ namespace FuelSdk;
 /**
  * This class represents the base object for SOAP operation.
  */
+#[\AllowDynamicProperties]
 class ET_BaseObject
 {
    /**
@@ -15,7 +16,7 @@ class ET_BaseObject
     public $props;
     /**
     * @var array      Dictionary type array which may hold e.g. array("Property"=>"", "SimpleOperator"=>"","Value"=>"")
-    */	
+    */
     public $filter;
     /**
     * @var      string      Organization Identifier.
@@ -26,6 +27,14 @@ class ET_BaseObject
     */
     public $organizationKey;
     /**
+    * @var      string      Folder property name.
+    */
+    public $folderProperty;
+    /**
+    * @var      string      Folder media type.
+    */
+    public $folderMediaType;
+    /**
     * @var      string      Object name, e.g. "ImportDefinition", "DataExtension", etc
     */
 	protected $obj;
@@ -34,4 +43,3 @@ class ET_BaseObject
     */
     protected $lastRequestID;
 }
-?>

@@ -4,14 +4,14 @@ use FuelSdk\ET_Client;
 use FuelSdk\ET_ExtractDescription;
 
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	// Modify the date below to reduce the number of results returned from the request
 	// Setting this too far in the past could result in a very large response size
-	
+
 	$retrieveDate = "2017-01-15T13:00:00.000";
-	
+
 	// Retrieve Filtered OpenEvent with GetMoreResults
 	print "Retrieve Filtered Extract Description with GetMoreResults \n";
 	$getOpenEvent = new ET_ExtractDescription();
@@ -32,7 +32,7 @@ try {
 	print 'Results : ';
     print_r( $getResponse->results );
 	print "\n---------------\n";
-	
+
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve All OpenEvent with GetMoreResults \n";
 		$getResponse = $getOpenEvent->GetMoreResults();
@@ -44,13 +44,13 @@ try {
 		print "\n---------------\n";
 	}
 
-	
+
 }
 catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

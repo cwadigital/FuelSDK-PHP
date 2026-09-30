@@ -9,21 +9,21 @@ class ET_DataExtractActivity extends ET_GetSupport
 
 	private $extractmap;
 
-	/** 
+	/**
 	* Initializes a new instance of the class.
 	*/
-	function __construct() 
+	function __construct()
 	{
 		//$this->populateExtractType();
-	}    
+	}
 
     /**
 	* This method start this import process.
-    * @return ET_PerformExtract     Object of type ET_PerformExtract which contains http status, request ID, etc from the Extract SOAP service 
-    */	
+    * @return ET_PerformExtract     Object of type ET_PerformExtract which contains http status, request ID, etc from the Extract SOAP service
+    */
 	function start()
 	{
-		$originalProps = $this->props;		
+		$originalProps = $this->props;
 		$response = new ET_PerformExtract($this->authStub, $this->props);
 		//print_r($response);
 		return $response;
@@ -39,19 +39,19 @@ class ET_DataExtractActivity extends ET_GetSupport
             $this->extractmap[$obj->Name] = $obj->ObjectID;
         }
 		//print_r($this->extractmap);
-    }	
+    }
 
     /**
 	* This method start this import process.
-    * @return ET_PerformExtract     Object of type ET_PerformExtract which contains http status, request ID, etc from the Extract SOAP service 
+    * @return ET_PerformExtract     Object of type ET_PerformExtract which contains http status, request ID, etc from the Extract SOAP service
 	* @param 	string 		$deCustomerKey	data extension customer key
 	* @param 	string 		$outputFileName	name of the ouput file
-    */	
+    */
 	function extractDataExtension($deCustomerKey, $outputFileName="PHP_data_extract_DE.csv")
 	{
 		$this->populateExtractType();
 		$extracttype = "Data Extension Extract";
-		$Parameters= array( 				
+		$Parameters= array(
 			"Parameter"=>array(
 				array("Name"=>"StartDate", "Value"=>"1900-01-01 01:00 AM"),
 				array("Name"=>"EndDate", "Value"=>"1900-01-01 01:00 AM"),
@@ -69,16 +69,16 @@ class ET_DataExtractActivity extends ET_GetSupport
 
     /**
 	* This method start this import process.
-    * @return ET_PerformExtract     Object of type ET_PerformExtract which contains http status, request ID, etc from the Extract SOAP service 
+    * @return ET_PerformExtract     Object of type ET_PerformExtract which contains http status, request ID, etc from the Extract SOAP service
 	* @param 	string 		$startDate		start date time in YYYY-mm-dd hh:MM AM format
 	* @param 	string 		$endDate		end date time in YYYY-mm-dd hh:MM AM format
 	* @param 	string 		$outputFileName	name of the ouput file
-    */	
+    */
 	function extractTrackingData($startDate, $endDate, $outputFileName="PHP_data_extract_tracking.csv")
 	{
 		$this->populateExtractType();
 		$extracttype = "Tracking Extract";
-		$Parameters= array( 				
+		$Parameters= array(
 			"Parameter"=>array(
 				array("Name"=>"StartDate", "Value"=>$startDate),
 				array("Name"=>"EndDate", "Value"=>$endDate),
@@ -94,4 +94,3 @@ class ET_DataExtractActivity extends ET_GetSupport
 
 }
 
-?>

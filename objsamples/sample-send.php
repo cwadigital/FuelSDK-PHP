@@ -3,14 +3,14 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Send;
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	// Modify the date below to reduce the number of results returned from the request
 	// Setting this too far in the past could result in a very large response size
-	
+
 	$retrieveDate = "2015-01-15T13:00:00.000";
-	
+
 	// Retrieve Filtered Send with GetMoreResults
 	print "Retrieve Filtered Send with GetMoreResults \n";
 	$getSend = new ET_Send();
@@ -26,7 +26,7 @@ try {
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print 'Results: '. print_r( $getResponse->results )."\n";
 	print "\n---------------\n";
-	
+
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve Send with GetMoreResults \n";
 		$getResponse = $getSend->GetMoreResults();
@@ -42,7 +42,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

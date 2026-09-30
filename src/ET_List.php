@@ -14,9 +14,9 @@ class ET_List extends ET_CUDWithUpsertSupport
     */
 	public  $folderId;
 
-	/** 
+	/**
 	* Initializes a new instance of the class and set the property obj, folderProperty and folderMediaType to appropriate values.
-	*/		
+	*/
 	function __construct()
 	{
 		$this->obj = "List";
@@ -24,4 +24,3 @@ class ET_List extends ET_CUDWithUpsertSupport
 		$this->folderMediaType = "list";
 	}
 }
-?>

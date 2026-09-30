@@ -3,7 +3,7 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Import;
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	$NewImportName = "PHPSDKImport_".uniqid();
@@ -27,7 +27,7 @@ try {
 	$postResponse = $postImport->post();
 	print_r('Post Status: '.($postResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResponse->code."\n";
-	print 'Message: '.$postResponse->message."\n";	
+	print 'Message: '.$postResponse->message."\n";
 	print 'Results Length: '. count($postResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResponse->results);
@@ -41,11 +41,11 @@ try {
 	$startResponse = $startImport->start();
 	print_r('Start Status: '.($startResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$startResponse->code."\n";
-	print 'Message: '.$startResponse->message."\n";	
+	print 'Message: '.$startResponse->message."\n";
 	print 'Results Length: '. count($startResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($startResponse->results);
-	print "\n---------------\n";	
+	print "\n---------------\n";
 
 	print "Delete Import\n";
 	$deleteImport = new ET_Import();
@@ -54,7 +54,7 @@ try {
 	$deleteResponse = $deleteImport->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
@@ -77,12 +77,12 @@ try {
 	$postResponse = $postImport->post();
 	print_r('Post Status: '.($postResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResponse->code."\n";
-	print 'Message: '.$postResponse->message."\n";	
+	print 'Message: '.$postResponse->message."\n";
 	print 'Results Length: '. count($postResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResponse->results);
 	print "\n---------------\n";
-	
+
 	print "Start Import to List\n";
 	$startImport = new ET_Import();
 	$startImport->authStub = $myclient;
@@ -90,7 +90,7 @@ try {
 	$startResponse = $startImport->start();
 	print_r('Start Status: '.($startResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$startResponse->code."\n";
-	print 'Message: '.$startResponse->message."\n";	
+	print 'Message: '.$startResponse->message."\n";
 	print 'Results Length: '. count($startResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($startResponse->results);
@@ -122,7 +122,7 @@ try {
 	$deleteResponse = $deleteImport->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
@@ -133,7 +133,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

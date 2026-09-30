@@ -4,7 +4,7 @@ use FuelSdk\ET_Client;
 use FuelSdk\ET_List;
 
 try {
-	
+
 	$NewListName = "PHPSDKList";
 	$myclient = new ET_Client();
 
@@ -20,7 +20,7 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve All List with GetMoreResults \n";
 		$getResponse = $getList->GetMoreResults();
@@ -30,10 +30,10 @@ try {
 		print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 		print 'Results Length: '. count($getResponse->results)."\n";
 		print "\n---------------\n";
-	}	
-	
+	}
+
 	$NameOfTestList = "PHPSDKList";
-	
+
 	// Create List
 	print "Create List \n";
 	$postContent = new ET_List();
@@ -42,16 +42,16 @@ try {
 	$postResponse = $postContent->post();
 	print_r('Post Status: '.($postResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResponse->code."\n";
-	print 'Message: '.$postResponse->message."\n";	
+	print 'Message: '.$postResponse->message."\n";
 	print 'Results Length: '. count($postResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResponse->results);
 	print "\n---------------\n";
-	
+
 	if ($postResponse->status){
 
 		$newListID = $postResponse->results[0]->NewID;
-	
+
 		// Retrieve newly created List
 		print "Retrieve newly created List \n";
 		$getList = new ET_List();
@@ -76,7 +76,7 @@ try {
 		$patchResult = $patchList->patch();
 		print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 		print 'Code: '.$patchResult->code."\n";
-		print 'Message: '.$patchResult->message."\n";	
+		print 'Message: '.$patchResult->message."\n";
 		print 'Results Length: '. count($patchResult->results)."\n";
 		print 'Results: '."\n";
 		print_r($patchResult->results);
@@ -97,7 +97,7 @@ try {
 		print 'Results: '."\n";
 		print_r($getResponse->results);
 		print "\n---------------\n";
-		
+
 		// Delete List
 /*		print "Delete List \n";
 		$deleteList = new ET_List();
@@ -106,12 +106,12 @@ try {
 		$deleteResponse = $deleteList->delete();
 		print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 		print 'Code: '.$deleteResponse->code."\n";
-		print 'Message: '.$deleteResponse->message."\n";	
+		print 'Message: '.$deleteResponse->message."\n";
 		print 'Results Length: '. count($deleteResponse->results)."\n";
 		print 'Results: '."\n";
 		print_r($deleteResponse->results);
 		print "\n---------------\n";
-*/		
+*/
 		// Retrieve List to confirm deletion
 		print "Retrieve List to confirm deletion \n";
 		$getList = new ET_List();
@@ -133,7 +133,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

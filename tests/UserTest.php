@@ -11,10 +11,15 @@ use PHPUnit\Framework\TestCase;
 final class UserTest extends TestCase
 {
     private $client;
-    
-    function __construct()
+    private $user;
+
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
 
@@ -30,7 +35,7 @@ final class UserTest extends TestCase
     */
     public function testCanGetUser($user)
     {
-        
+
         $getuser = $this->getUser($user->ID);
         //make sure the get was successful
         $this->assertEquals($getuser->status, TRUE);
@@ -53,23 +58,26 @@ final class UserTest extends TestCase
         //compare the updated Email property
         $this->assertEquals($getuser->results[0]->Email == "test@example.com", TRUE);
         $this->disableUser($getuser->results[0]);
-        
+
     }
 
-   
+
 
     public function getUser($id, $permission = false)
     {
         $user = new ET_User();
         $auth = $this->client;
         $user->authStub = $auth;
-        
+
         $user->filter= array("Property"=>"ID", "SimpleOperator"=>"equals","Value"=>$id);
         $result = $user->get();
 
         return $result;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createUser($name = "")
     {
         $user = new ET_User();
@@ -93,7 +101,7 @@ final class UserTest extends TestCase
         $user->props["SsoIdentities"] = array("SsoIdentity" => array("Active" => "true","FederatedID" => $name));
         $user->props["DefaultBusinessUnit"] = "10766790";
         return $user->post();
-        
+
     }
 
     public function updateUser($getuser,$email)
@@ -127,9 +135,8 @@ final class UserTest extends TestCase
 
     }
 
-   
 
-    
+
+
 }
 
-?>

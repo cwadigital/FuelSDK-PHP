@@ -9,17 +9,17 @@ namespace FuelSdk;
  */
 class ET_ProfileAttribute extends ET_BaseObject
 {
-	/** 
+	/**
 	* Initializes a new instance of the class and set the since last batch to true.
 	*/
-	function __construct() 
+	function __construct()
 	{
 		$this->obj = "PropertyDefinition";
 	}
 
     /**
 	* This method is used to create Property Definition for a subscriber
-    * @return ET_Configure     Object of type ET_Configure which contains http status code, response, etc from the POST SOAP service 
+    * @return ET_Configure     Object of type ET_Configure which contains http status code, response, etc from the POST SOAP service
     */
 	function post()
 	{
@@ -28,17 +28,17 @@ class ET_ProfileAttribute extends ET_BaseObject
 
     /**
 	* This method is used to get Property Definition for a subscriber
-    * @return ET_Info     Object of type ET_Info which contains http status code, response, etc from the GET SOAP service 
-    */		
+    * @return ET_Info     Object of type ET_Info which contains http status code, response, etc from the GET SOAP service
+    */
 	function get()
 	{
 		return new ET_Info($this->authStub, 'Subscriber', true);
 	}
-	
+
     /**
 	* This method is used to update Property Definition for a subscriber
-    * @return ET_Configure     Object of type ET_Configure which contains http status code, response, etc from the UPDATE SOAP service 
-    */	
+    * @return ET_Configure     Object of type ET_Configure which contains http status code, response, etc from the UPDATE SOAP service
+    */
 	function patch()
 	{
 		return new ET_Configure($this->authStub, $this->obj, "update", $this->props);
@@ -47,10 +47,9 @@ class ET_ProfileAttribute extends ET_BaseObject
     /**
 	* This method is used to delete Property Definition for a subscriber
     * @return ET_Configure     Object of type ET_Configure which contains http status code, response, etc from the DELETE SOAP service
-    */		
+    */
 	function delete()
 	{
 		return new ET_Configure($this->authStub, $this->obj, "delete", $this->props);
 	}
 }
-?>

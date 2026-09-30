@@ -3,7 +3,7 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Folder;
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	// Retrieve All Folder with GetMoreResults
@@ -18,7 +18,7 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve All Folder with GetMoreResults \n";
 		$getResponse = $getFolder->GetMoreResults();
@@ -28,10 +28,10 @@ try {
 		print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 		print 'Results Length: '. count($getResponse->results)."\n";
 		print "\n---------------\n";
-	}	
-	
+	}
+
 	$NameOfTestFolder = "PHPSDKFolder";
-	
+
 	// Retrieve Specific Folder for Email Folder ParentID
 	print "Retrieve Specific Folder for Email Folder ParentID \n";
 	$getFolder = new ET_Folder();
@@ -45,10 +45,10 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	$ParentIDForEmail = $getResponse->results[0]->ID;
 	print_r('Parent Folder for Email: '.$ParentIDForEmail."\n");
-	
+
 
 	// Create Folder
 	print "Create Folder \n";
@@ -58,7 +58,7 @@ try {
 	$postResult = $postFolder->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Results Length: '. count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
@@ -88,7 +88,7 @@ try {
 	$patchResult = $subPatch->patch();
 	print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$patchResult->code."\n";
-	print 'Message: '.$patchResult->message."\n";	
+	print 'Message: '.$patchResult->message."\n";
 	print 'Results Length: '. count($patchResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($patchResult->results);
@@ -109,7 +109,7 @@ try {
 	print 'Results: '."\n";
 	print_r($getResponse->results);
 	print "\n---------------\n";
-	
+
 	// Delete Folder
 	print "Delete Folder \n";
 	$deleteFolder = new ET_Folder();
@@ -118,12 +118,12 @@ try {
 	$deleteResponse = $deleteFolder->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
 	print "\n---------------\n";
-	
+
 	// Retrieve Folder to confirm deletion
 	print "Retrieve Folder to confirm deletion \n";
 	$getFolder = new ET_Folder();
@@ -145,7 +145,7 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

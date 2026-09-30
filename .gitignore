@@ -15,3 +15,5 @@ phpunit-*.phar
 composer.phar
 .idea
 .cache
+.phpunit.cache
+.output.txt

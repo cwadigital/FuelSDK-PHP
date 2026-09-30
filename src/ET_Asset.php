@@ -11,7 +11,7 @@ class ET_Asset extends ET_CUDSupportRest
 {
     /**
     * The constructor will assign endpoint, urlProps, urlPropsRequired fields of parent ET_BaseObjectRest
-    */ 
+    */
 	function __construct()
 	{
 		$this->path = "/guide/v1/contentItems/portfolio/{id}";
@@ -22,7 +22,7 @@ class ET_Asset extends ET_CUDSupportRest
     // method for calling a Fuel API using POST
     /**
     * @return object     The stdClass object with property httpcode and body from the REST service after upload is finished
-    */ 	
+    */
 	public function upload()
 	{
 		// TODO create unit test for this function
@@ -31,9 +31,9 @@ class ET_Asset extends ET_CUDSupportRest
 		$post = array('file_contents'=>'@'.$this->props['filePath']);
 
         $ch = curl_init();
-        
+
 		$headers = array("User-Agent: ".ET_Util::getSDKVersion(), "Authorization: Bearer ".$this->authStub->getAuthToken());
-		curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);	
+		curl_setopt ($ch, CURLOPT_HTTPHEADER, $headers);
 
 		curl_setopt($ch, CURLOPT_URL, $completeURL);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -43,15 +43,15 @@ class ET_Asset extends ET_CUDSupportRest
 
 		// Disable VerifyPeer for SSL
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		
+
 		$outputJSON = curl_exec($ch);
 		//curl_close ($ch);
-		
-		$responseObject = new stdClass(); 
+
+		$responseObject = new stdClass();
 		$responseObject->body = $outputJSON;
 		$responseObject->httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		curl_close ($ch);	
-		
+		curl_close ($ch);
+
 		return $responseObject;
 	}
 
@@ -71,4 +71,3 @@ class ET_Asset extends ET_CUDSupportRest
 		return null;
 	}
 }
-?>

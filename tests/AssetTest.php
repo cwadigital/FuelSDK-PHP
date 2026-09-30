@@ -1,5 +1,6 @@
 <?php
 namespace FuelSdk\Test;
+use Exception;
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Asset;
 use PHPUnit\Framework\TestCase;
@@ -10,9 +11,13 @@ final class AssetTest extends TestCase
 {
     private $myclient;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client(true);
+        try {
+            $this->myclient = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateAsset()
@@ -23,7 +28,7 @@ final class AssetTest extends TestCase
 
     public function testCanGetAsset()
     {
-        //first create a asset
+        //first create an asset
         $asset = $this->createAsset("Get asset test ".uniqid());
         echo "asset object: \n";
         print_r($asset);
@@ -35,22 +40,25 @@ final class AssetTest extends TestCase
 
     public function testCanNotDeleteAsset()
     {
-        //first create a asset
+        //first create an asset
         $asset = new ET_Asset();
         $this->assertNull($asset->delete());
-    }    
+    }
 
     public function testCanNotUpdateAsset()
     {
-        //first create a asset
+        //first create an asset
         $asset = new ET_Asset();
         $this->assertNull($asset->patch());
-    }    
+    }
 
 
+    /**
+     * @throws Exception
+     */
     public function updateAsset($id)
     {
-        $desc = "chaning the description";
+        $desc = "changing the description";
         $asset = new ET_Asset();
         $auth = $this->myclient;
         $asset->authStub = $auth;
@@ -62,6 +70,9 @@ final class AssetTest extends TestCase
         return $result;
     }
 
+    /**
+     * @throws Exception
+     */
     public function getAsset($id)
     {
         // Retrieve All Assets with GetMoreResults
@@ -89,10 +100,13 @@ final class AssetTest extends TestCase
 
         print 'Results: "\n"';
         print_r($result);
-        
+
         return $result;
     }
 
+    /**
+     * @throws Exception
+     */
     public function createAsset($name = "")
     {
         $base64EncodedString = base64_encode("This is my file contents of a text file");
@@ -103,8 +117,8 @@ final class AssetTest extends TestCase
         print "Create a new Asset Base 64 \n";
         $postAsset = new ET_Asset();
         $postAsset->authStub = $this->myclient;
-        $postAsset->props = array( "name" => $name, 
-            "fileName" => "TestFile.txt", "mimeType" => "text/plain", "fileData" => $base64EncodedString, 
+        $postAsset->props = array( "name" => $name,
+            "fileName" => "TestFile.txt", "mimeType" => "text/plain", "fileData" => $base64EncodedString,
             "displayName" => "TestFile.txt", "customerKey" => md5(uniqid()), "description" => "Test description");
         $postResponse = $postAsset->Post();
 
@@ -112,7 +126,7 @@ final class AssetTest extends TestCase
         print 'Code: '.$postResponse->code."\n";
         print 'Message: '.$postResponse->message."\n";
         print 'Results Length: '. count($postResponse->results)."\n";
-        
+
         print 'Results: '."\n";
         print_r($postResponse);
         print "\n---------------\n";

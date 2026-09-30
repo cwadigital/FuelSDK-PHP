@@ -17,4 +17,4 @@
 * **code refactor :** code refactored to individual class files. (under src/ directory)
 * **unit test :** added unit test cases (happy path for now) using phpunit testing framework. (under tests/ directory)
 * **API docs :** added API documentation using phpdocumentor framework. (under docs/ directory)
-* **auto loader :** integrated auto loader (spl_autoload_register) for all source code under src/, tests/, objsamples/ directory.
+* **autoloader :** integrated autoloader (spl_autoload_register) for all source code under src/, tests/, objsamples/ directory.

@@ -11,11 +11,15 @@ use PHPUnit\Framework\TestCase;
 final class SubscriberTest extends TestCase
 {
     private $client;
-    
 
-    function __construct()
+
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateSubscriber()
@@ -71,7 +75,7 @@ final class SubscriberTest extends TestCase
         $list = $listtest->createList();
         $listID = $list->results[0]->NewID;
         $subscriber = new ET_Subscriber();
-        $subscriber->props = array("SubscriberKey" => "PHPSDKSubscriber".uniqid(), 
+        $subscriber->props = array("SubscriberKey" => "PHPSDKSubscriber".uniqid(),
                                     "EmailAddress" => uniqid()."@salesforce.com",
                                     "Lists" => array("ID" => $listID),
                                     "Attributes" => array("Name" => "First Name", "Value" => "FirstName".uniqid()),
@@ -92,7 +96,7 @@ final class SubscriberTest extends TestCase
         $result = $this->upsertSubscriber($subscriber);
         $this->assertEquals($result->status, TRUE);
         $this->assertEquals($result->results[0]->StatusMessage == "Updated Subscriber.", TRUE);
-        
+
         //delete the subscriber
         $result = $this->deleteSubscriber($getsubscriber->results[0]);
 
@@ -104,6 +108,9 @@ final class SubscriberTest extends TestCase
 
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createSubscriber()
     {
         $list = new ListTest();
@@ -112,7 +119,7 @@ final class SubscriberTest extends TestCase
         $subscriber = new ET_Subscriber();
         $subscriber->authStub = $this->client;
 
-        $subscriber->props = array("SubscriberKey" => "PHPSDKSubscriber".uniqid(), 
+        $subscriber->props = array("SubscriberKey" => "PHPSDKSubscriber".uniqid(),
                                     "EmailAddress" => uniqid()."@salesforce.com",
                                     "Lists" => array("ID" => $listID),
                                     "Attributes" => array("Name" => "First Name", "Value" => "FirstName".uniqid()),
@@ -141,7 +148,7 @@ final class SubscriberTest extends TestCase
 
     public function updateSubscriber($getsubscriber, $newEmail)
     {
-        
+
         $subscriber = new ET_Subscriber();
         $subscriber->authStub = $this->client;
         $subscriber->props["ID"] = $getsubscriber->ID;
@@ -161,4 +168,3 @@ final class SubscriberTest extends TestCase
 
 }
 
-?>

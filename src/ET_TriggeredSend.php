@@ -18,7 +18,7 @@ class ET_TriggeredSend extends ET_CUDSupport
 	* @var int      		Gets or sets the folder identifier.
 	*/
 	public $folderId;
-	/** 
+	/**
 	* Initializes a new instance of the class.
 	*/
 	function __construct()
@@ -31,7 +31,7 @@ class ET_TriggeredSend extends ET_CUDSupport
     /**
 	* Send this instance.
     * @return ET_Post     Object of type ET_Post which contains http status code, response, etc from the POST SOAP service
-    */	
+    */
 	public function Send()
 	{
 		$tscall = array("TriggeredSendDefinition" => $this->props , "Subscribers" => $this->subscribers);
@@ -39,4 +39,3 @@ class ET_TriggeredSend extends ET_CUDSupport
 		return $response;
 	}
 }
-?>

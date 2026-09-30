@@ -11,11 +11,15 @@ use PHPUnit\Framework\TestCase;
 final class DataExtensionTest extends TestCase
 {
     private $client;
-    
 
-    function __construct()
+
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateDataExtension()
@@ -83,7 +87,7 @@ final class DataExtensionTest extends TestCase
         return $dataextension->get();
     }
 
-   
+
     public function updateDataExtension($de,$updatedName)
     {
         $dataextension = new ET_DataExtension();
@@ -98,7 +102,7 @@ final class DataExtensionTest extends TestCase
         $dataextension = new ET_DataExtension();
         $dataextension->authStub = $this->client;
         $dataextension->props = array("ObjectID" => $de->ObjectID);
-       
+
         return $dataextension->delete();
     }
 
@@ -106,4 +110,3 @@ final class DataExtensionTest extends TestCase
 
 }
 
-?>

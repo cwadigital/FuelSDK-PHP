@@ -4,7 +4,7 @@ use FuelSdk\ET_Client;
 use FuelSdk\ET_ResultMessage;
 
 
-try {	
+try {
 	$myclient = new ET_Client();
 
 	// Retrieve ResultMessage with GetMoreResults
@@ -19,7 +19,7 @@ try {
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print 'Results: '. print_r($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve All ResultMessage with GetMoreResults \n";
 		$getResponse = $getResultMessage->GetMoreResults();
@@ -30,13 +30,13 @@ try {
 		print 'Results Length: '. count($getResponse->results)."\n";
 		print "\n---------------\n";
 	}
-	
+
 }
 catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

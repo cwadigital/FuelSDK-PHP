@@ -11,13 +11,15 @@ use PHPUnit\Framework\TestCase;
 final class FolderTest extends TestCase
 {
     private $client;
-    
 
-    function __construct()
+
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
-        
-        
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateFolder()
@@ -27,7 +29,7 @@ final class FolderTest extends TestCase
         $this->assertEquals($result->status, TRUE);
         $this->assertEquals($result->results[0]->StatusMessage == "Folder created successfully.", TRUE);
         return array("result" => $result->results[0], "folderName" => $folderName);
-        
+
     }
 
     /**
@@ -69,18 +71,21 @@ final class FolderTest extends TestCase
 
     }
 
-    
+
+    /**
+     * @throws \Exception
+     */
     public function createFolder($folderName)
     {
         $folder = new ET_Folder();
         $folder->authStub = $this->client;
         $parent = $this->queryFolder("Name", "My Emails");
-        $folder->props = array("CustomerKey" => "SDKExampleFolder".uniqid(), 
-                                "Name" => $folderName, 
-                                "Description" => "SDKExampleFolder", 
-                                "ContentType"=> "EMAIL", 
-                                "ParentFolder" => array("ID" =>$parent->results[0]->ID), 
-                                "AllowChildren" => "true", 
+        $folder->props = array("CustomerKey" => "SDKExampleFolder".uniqid(),
+                                "Name" => $folderName,
+                                "Description" => "SDKExampleFolder",
+                                "ContentType"=> "EMAIL",
+                                "ParentFolder" => array("ID" =>$parent->results[0]->ID),
+                                "AllowChildren" => "true",
                                 "IsEditable" => "true");
 
         return $folder->post();
@@ -105,7 +110,7 @@ final class FolderTest extends TestCase
 
     public function updateFolder($getfolder, $newName)
     {
-        
+
         $folder = new ET_Folder();
         $folder->authStub = $this->client;
         $folder->props["ID"] = $getfolder->ID;
@@ -125,4 +130,3 @@ final class FolderTest extends TestCase
 
 }
 
-?>

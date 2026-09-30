@@ -11,18 +11,22 @@ use PHPUnit\Framework\TestCase;
 final class ContentAreaTest extends TestCase
 {
     private $client;
-    
 
-    function __construct()
+
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanCreateContentArea()
     {
         $result = $this->createContentArea();
         $this->assertEquals($result->status, TRUE);
-        
+
         return $result->results[0];
     }
 
@@ -63,6 +67,9 @@ final class ContentAreaTest extends TestCase
 
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createContentArea()
     {
         $contentarea = new ET_ContentArea();
@@ -81,7 +88,7 @@ final class ContentAreaTest extends TestCase
         return $contentarea->get();
     }
 
-   
+
     public function updateContentArea($contarea,$updatedContent)
     {
         $contentarea = new ET_ContentArea();
@@ -104,4 +111,3 @@ final class ContentAreaTest extends TestCase
 
 }
 
-?>

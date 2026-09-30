@@ -9,16 +9,15 @@ class ET_ExtractDescription extends ET_GetSupport
 {
     /**
     * @var bool 	Gets or sets a boolean value indicating whether this object get since last batch. true if get since last batch; otherwise, false.
-    */	
+    */
 	//public  $getSinceLastBatch;
 
-	/** 
+	/**
 	* Initializes a new instance of the class and set the since last batch to true.
-	*/	
-	function __construct() 
+	*/
+	function __construct()
 	{
 		$this->obj = "ExtractDescription";
 		//$this->getSinceLastBatch = true;
 	}
 }
-?>

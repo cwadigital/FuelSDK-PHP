@@ -3,10 +3,10 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Asset;
 
-try {	
+try {
 
 	$myclient = new ET_Client();
-	
+
 	// Retrieve All Assets with GetMoreResults
 	print "Retrieve All Assets with GetMoreResults \n";
 	$getAsset = new ET_Asset();
@@ -17,12 +17,12 @@ try {
 	print 'Message: '.$getResult->message."\n";
 	print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length(Items): '. count($getResult->results->items)."\n";
-	
+
 	print 'Results: "\n"';
 	print_r($getResult->results);
 	print "\n---------------\n";
-	
-	
+
+
 	while ($getResult->moreResults) {
 		print "Continue Retrieve All Assets with GetMoreResults \n";
 		$getResult = $getAsset->GetMoreResults();
@@ -32,13 +32,13 @@ try {
 		print_r('More Results: '.($getResult->moreResults ? 'true' : 'false')."\n");
 		print 'Results Length(Items): '. count($getResult->results->items)."\n";
 		print "\n---------------\n";
-	}	 
-	
-	
-	
+	}
+
+
+
 
 	$base64EncodedString = base64_encode("This is my file contents of a text file");
-	
+
 	// Create a new Asset Base 64
 print "Create a new Asset Base 64 \n";
 	$postAsset = new ET_Asset();
@@ -49,13 +49,13 @@ print "Create a new Asset Base 64 \n";
 	print 'Code: '.$postResponse->code."\n";
 	print 'Message: '.$postResponse->message."\n";
 	print 'Results Length: '. count($postResponse->results)."\n";
-	
+
 	print 'Results: '."\n";
 	print_r($postResponse->results);
 	print "\n---------------\n";
-	
-	
-	
+
+
+
 	// Create a new Asset File Path
 	print "Create a new Asset File Path \n";
 	$postAsset2 = new ET_Asset();
@@ -66,17 +66,17 @@ print "Create a new Asset Base 64 \n";
 	print 'Code: '.$postResponse->code."\n";
 	print 'Message: '.$postResponse->message."\n";
 	print 'Results Length: '. count($postResponse->results)."\n";
-	
+
 	print 'Results: '."\n";
 	print_r($postResponse->results);
-	print "\n---------------\n";	
-	
+	print "\n---------------\n";
+
 }
 catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

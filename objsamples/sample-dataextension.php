@@ -5,15 +5,15 @@ use FuelSdk\ET_DataExtension;
 use FuelSdk\ET_DataExtension_Column;
 use FuelSdk\ET_DataExtension_Row;
 
-try {	
+try {
 	$myclient = new ET_Client();
-		
+
 	//DataExtension Testing
 	//Get all Data Extensions
 	print_r("Get all Data Extensions \n");
 	$getDE = new ET_DataExtension();
 	$getDE->authStub = $myclient;
-	$getDE->props = array("CustomerKey", "Name");	
+	$getDE->props = array("CustomerKey", "Name");
 	$getResult = $getDE->get();
 	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$getResult->code."\n";
@@ -24,11 +24,11 @@ try {
 	//print_r($getResult->results);
 	print "\n---------------\n";
 
-	// Specify a name for the data extension that will be used for testing 
+	// Specify a name for the data extension that will be used for testing
 	// Note: Name and CustomerKey will be the same value
 	// WARNING: Data Extension will be deleted so don't use the name of a
-	// production data extension 
-	
+	// production data extension
+
 	$DataExtensionNameForTesting = "PHPSDKTestDE_".uniqid();
 
 	// Create a Data Extension
@@ -42,7 +42,7 @@ try {
 	$postResult = $postDE->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Result Count: '.count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
@@ -58,7 +58,7 @@ try {
 	$patchResult = $patchDE->patch();
 	print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$patchResult->code."\n";
-	print 'Message: '.$patchResult->message."\n";	
+	print 'Message: '.$patchResult->message."\n";
 	print 'Result Count: '.count($patchResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($patchResult->results);
@@ -68,7 +68,7 @@ try {
 	print_r("Get single Data Extension \n");
 	$getDE = new ET_DataExtension();
 	$getDE->authStub = $myclient;
-	$getDE->props = array("CustomerKey", "Name");	
+	$getDE->props = array("CustomerKey", "Name");
 	$getDE->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $DataExtensionNameForTesting);
 	$getResult = $getDE->get();
 	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
@@ -84,7 +84,7 @@ try {
 	print_r("Get all Data Extensions Columns filter by specific DE \n");
 	$getDEColumns = new ET_DataExtension_Column();
 	$getDEColumns->authStub = $myclient;
-	$getDEColumns->props = array("CustomerKey", "Name");	
+	$getDEColumns->props = array("CustomerKey", "Name");
 	$getDEColumns->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $DataExtensionNameForTesting);
 	$getResult = $getDEColumns->get();
 	print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
@@ -96,16 +96,16 @@ try {
 	print_r($getResult->results);
 	print "\n---------------\n";
 
-	// Add a row to a DataExtension 
+	// Add a row to a DataExtension
 	print_r("Add a row to a DataExtension  \n");
 	$postDRRow = new ET_DataExtension_Row();
 	$postDRRow->authStub = $myclient;
 	$postDRRow->props = array("Key" => "PHPSDKTEST", "Value" => "ItWorks");
-	$postDRRow->Name = $DataExtensionNameForTesting;	
+	$postDRRow->Name = $DataExtensionNameForTesting;
 	$postResult = $postDRRow->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Result Count: '.count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
@@ -116,11 +116,11 @@ try {
 	$postDRRow = new ET_DataExtension_Row();
 	$postDRRow->authStub = $myclient;
 	$postDRRow->props = array("Key" => "PHPSDKTEST2", "Value" => "ItWorks");
-	$postDRRow->CustomerKey = $DataExtensionNameForTesting;	
+	$postDRRow->CustomerKey = $DataExtensionNameForTesting;
 	$postResult = $postDRRow->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Result Count: '.count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
@@ -141,22 +141,22 @@ try {
 	//print 'Results: '."\n";
 	//print_r($getResult->results);
 	print "\n---------------\n";
-	
-	// Update a row in a DataExtension 
+
+	// Update a row in a DataExtension
 	print_r("Update a row in a DataExtension   \n");
 	$patchDRRow = new ET_DataExtension_Row();
 	$patchDRRow->authStub = $myclient;
 	$patchDRRow->props = array("Key" => "PHPSDKTEST2", "Value" => "ItWorksUPDATED!");
-	$patchDRRow->CustomerKey = $DataExtensionNameForTesting;	
+	$patchDRRow->CustomerKey = $DataExtensionNameForTesting;
 	$patchResult = $patchDRRow->patch();
 	print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$patchResult->code."\n";
-	print 'Message: '.$patchResult->message."\n";	
+	print 'Message: '.$patchResult->message."\n";
 	print 'Result Count: '.count($patchResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($patchResult->results);
 	print "\n---------------\n";
-	
+
 	//Get rows from Data Extension using filter (By Name)
 	print_r("Get rows from Data Extension using filter (By Name) \n");
 	$getDERows = new ET_DataExtension_Row();
@@ -173,23 +173,23 @@ try {
 	print 'Results: '."\n";
 	print_r($getResult->results);
 	print "\n---------------\n";
-	
-	// Delete a row from a DataExtension 
+
+	// Delete a row from a DataExtension
 	print_r("Delete a row from a DataExtension   \n");
 	$deleteDRRow = new ET_DataExtension_Row();
 	$deleteDRRow->authStub = $myclient;
 	$deleteDRRow->props = array("Key" => "PHPSDKTEST2", "Value" => "ItWorksUPDATED!");
-	$deleteDRRow->CustomerKey = $DataExtensionNameForTesting;	
+	$deleteDRRow->CustomerKey = $DataExtensionNameForTesting;
 	$deleteResult = $deleteDRRow->delete();
 	print_r('Delete Status: '.($deleteResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResult->code."\n";
-	print 'Message: '.$deleteResult->message."\n";	
+	print 'Message: '.$deleteResult->message."\n";
 	print 'Result Count: '.count($deleteResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResult->results);
 	print "\n---------------\n";
-	
-	
+
+
 	//Get all Data Extensions Rows (By CustomerKey) Again
 	print_r("Get all Data Extensions Rows (By CustomerKey) Again \n");
 	$getDERows = new ET_DataExtension_Row();
@@ -205,8 +205,8 @@ try {
 	//print 'Results: '."\n";
 	//print_r($getResult->results);
 	print "\n---------------\n";
-	
-	
+
+
 	// Delete a Data Extension
 	print_r("Delete a Data Extension  \n");
 	$deleteDE = new ET_DataExtension();
@@ -215,18 +215,18 @@ try {
 	$deleteResult = $deleteDE->delete();
 	print_r('Delete Status: '.($deleteResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResult->code."\n";
-	print 'Message: '.$deleteResult->message."\n";	
+	print 'Message: '.$deleteResult->message."\n";
 	print 'Result Count: '.count($deleteResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResult->results);
 	print "\n---------------\n";
-	
+
 	}
 	catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

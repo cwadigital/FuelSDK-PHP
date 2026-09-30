@@ -27,7 +27,7 @@ try {
 	$startImport->authStub = $myclient;
 	//$startImport->props["ID"] = $extractmap[$extracttype];
 
-	$Parameters= array( 				
+	$Parameters= array(
 		"Parameter"=>array(
 			array("Name"=>"StartDate", "Value"=>"2017-06-01 01:00 AM"),
 			array("Name"=>"EndDate", "Value"=>"2017-09-01 01:00 AM"),
@@ -43,11 +43,11 @@ try {
 	$startResponse = $startImport->start();
 	print_r('Status: '.$startResponse->status ."\n");
 	print 'Code: '.$startResponse->code."\n";
-	print 'Req ID: '.$startResponse->request_id."\n";	
+	print 'Req ID: '.$startResponse->request_id."\n";
 	print 'Results Length: '. count($startResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($startResponse->results);
-	print "\n---------------\n";	
+	print "\n---------------\n";
 	print_r($startResponse);
 
 }
@@ -55,4 +55,3 @@ catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>

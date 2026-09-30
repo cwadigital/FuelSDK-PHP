@@ -15,8 +15,8 @@ class ET_Email extends ET_CUDSupport
 	public  $folderId;
 
     /**
-    * Initializes a new instance of the class and will assign obj, folderProperty, folderMediaType property 
-    */ 	
+    * Initializes a new instance of the class and will assign obj, folderProperty, folderMediaType property
+    */
 	function __construct()
 	{
 		$this->obj = "Email";
@@ -24,4 +24,3 @@ class ET_Email extends ET_CUDSupport
 		$this->folderMediaType = "email";
 	}
 }
-?>

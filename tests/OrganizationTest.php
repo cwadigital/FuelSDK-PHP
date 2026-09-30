@@ -15,12 +15,16 @@ final class OrganizationTest extends TestCase
     private $NameOfTestOrganization;
     private $CustomerKeyOfTestOrganization;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client(true);
         $this->CustomerKeyofExistingOrganization = '65941725-F407-49C4-A64A-F6C8E38A01B1';
         $this->NameOfTestOrganization = "TestOrganizationName";
         $this->CustomerKeyOfTestOrganization = "TestOrganizationCustomerKey::" . substr(md5(rand()),0,7);
+        try {
+            $this->myclient = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanGetAllOrganization()
@@ -39,7 +43,7 @@ final class OrganizationTest extends TestCase
         print "\n---------------\n";
 
         $this->assertTrue($getResponse->status);
-        $this->assertTrue($getResponse->moreResults);   
+        $this->assertTrue($getResponse->moreResults);
     }
 
     public function testCanGetOneOrganization()
@@ -64,6 +68,9 @@ final class OrganizationTest extends TestCase
         $this->assertEquals($getResponse->results[0]->CustomerKey, $this->CustomerKeyofExistingOrganization);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testCanCreateOrganization()
     {
         // Create Organization
@@ -74,7 +81,7 @@ final class OrganizationTest extends TestCase
         $postResult = $postOrganization->post();
         print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
         print 'Code: '.$postResult->code."\n";
-        print 'Message: '.$postResult->message."\n";	
+        print 'Message: '.$postResult->message."\n";
         print 'Results Length: '. count($postResult->results)."\n";
         print 'Results: '."\n";
         print_r($postResult->results);
@@ -85,7 +92,7 @@ final class OrganizationTest extends TestCase
         $this->assertEquals($postResult->results[0]->Object->CustomerKey, $this->CustomerKeyOfTestOrganization);
 
         return $this->CustomerKeyOfTestOrganization;
-    }    
+    }
 
 
     /**
@@ -102,12 +109,12 @@ final class OrganizationTest extends TestCase
         $patchResult = $patchOrganization->patch();
         print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
         print 'Code: '.$patchResult->code."\n";
-        print 'Message: '.$patchResult->message."\n";	
+        print 'Message: '.$patchResult->message."\n";
         print 'Results Length: '. count($patchResult->results)."\n";
         print 'Results: '."\n";
         print_r($patchResult->results);
         print "\n---------------\n";
-        
+
         $this->assertTrue($patchResult->status);
         $this->assertEquals($patchResult->results[0]->StatusMessage, "Account Updated / Created");
         $this->assertEquals($patchResult->results[0]->Object->CustomerKey, $CustomerKeyOfTestOrganization);

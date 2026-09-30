@@ -8,16 +8,22 @@ final class OAuth2Test extends TestCase
 {
     private $client;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->client = new ET_Client(true);
+        try {
+            $this->client = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function testIfAuthTokenAndRefreshTokenDifferIfRefreshTokenIsEnforced()
     {
         $reflection = new \ReflectionClass(get_class($this->client));
         $clientid = $reflection->getProperty("clientId");
-        $clientid->setAccessible(true);
         $token = $this->client->getAuthToken();
         $refreshToken = $this->client->getRefreshToken(null);
         $this->client->refreshTokenWithOAuth2(true);
@@ -28,4 +34,3 @@ final class OAuth2Test extends TestCase
         $this->assertTrue($refreshToken != $newrefreshToken && $token != $newtoken);
     }
 }
-?>

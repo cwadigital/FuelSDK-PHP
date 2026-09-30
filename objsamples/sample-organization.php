@@ -3,8 +3,8 @@ include_once('tests/UnitBootstrap.php');
 use FuelSdk\ET_Client;
 use FuelSdk\ET_Organization;
 
-try {	
-	$params = array();		
+try {
+	$params = array();
 	$myclient = new ET_Client(true, $params);
 
 	// Retrieve All Organizations with GetMoreResults
@@ -20,7 +20,7 @@ try {
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print 'Results: '.print_r($getResponse->results)."\n";
 	print "\n---------------\n";
-/*	
+/*
 	while ($getResponse->moreResults) {
 		print "Continue Retrieve All Organizations with GetMoreResults \n";
 		$getResponse = $getOrganization->GetMoreResults();
@@ -31,7 +31,7 @@ try {
 		print 'Results Length: '. count($getResponse->results)."\n";
 		print "\n---------------\n";
 	}
-*/	
+*/
 	$CustomerKeyofExistingOrganization = '65941725-F407-49C4-A64A-F6C8E38A01B1';
 	$CustomerKeyOfTestOrganization = "TestOrganizationCustomerKey::" . substr(md5(rand()),0,7);
 	$NameOfTestOrganization = "TestOrganizationName";
@@ -50,11 +50,11 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	$TestOrganizationID = $getResponse->results[0]->ID;
 	$TestOrganizationName = $getResponse->results[0]->Name;
 	$TestOrganizationIsActive = $getResponse->results[0]->IsActive;
-	print_r('Test Organization ID: '.$TestOrganizationID.', Name: '.$TestOrganizationName.", IsActrive: " .$TestOrganizationIsActive."\n");	
+	print_r('Test Organization ID: '.$TestOrganizationID.', Name: '.$TestOrganizationName.", IsActrive: " .$TestOrganizationIsActive."\n");
 	print "\n---------------\n";
 
 
@@ -66,13 +66,13 @@ try {
 	$postResult = $postOrganization->post();
 	print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$postResult->code."\n";
-	print 'Message: '.$postResult->message."\n";	
+	print 'Message: '.$postResult->message."\n";
 	print 'Results Length: '. count($postResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($postResult->results);
 	print "\n---------------\n";
-	
-	
+
+
 	// Retrieve newly created Organization
 	print "Retrieve newly created Organization \n";
 	$getOrganization = new ET_Organization();
@@ -86,14 +86,14 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	$TestOrganizationID = $getResponse->results[0]->ID;
 	$TestOrganizationName = $getResponse->results[0]->Name;
 	$TestOrganizationIsActive = $getResponse->results[0]->IsActive;
 	print_r('Test Organization ID: '.$TestOrganizationID.', Name: '.$TestOrganizationName.", IsActrive: " .$TestOrganizationIsActive."\n");
 	print "\n---------------\n";
-	
-	
+
+
 	// Update Organization
 	print "Update Organization \n";
 	$patchOrganization = new ET_Organization();
@@ -102,14 +102,14 @@ try {
 	$patchResult = $patchOrganization->patch();
 	print_r('Patch Status: '.($patchResult->status ? 'true' : 'false')."\n");
 	print 'Code: '.$patchResult->code."\n";
-	print 'Message: '.$patchResult->message."\n";	
+	print 'Message: '.$patchResult->message."\n";
 	print 'Results Length: '. count($patchResult->results)."\n";
 	print 'Results: '."\n";
 	print_r($patchResult->results);
 	print "\n---------------\n";
 
-	
-	
+
+
 	// Retrieve updated Organization
 	print "Retrieve updated Organization \n";
 	$getOrganization = new ET_Organization();
@@ -123,14 +123,14 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	$TestOrganizationID = $getResponse->results[0]->ID;
 	$TestOrganizationName = $getResponse->results[0]->Name;
 	$TestOrganizationIsActive = $getResponse->results[0]->IsActive;
 	print_r('Test Organization ID: '.$TestOrganizationID.', Name: '.$TestOrganizationName.", IsActrive: " .$TestOrganizationIsActive."\n");
 	print "\n---------------\n";
-	
-	
+
+
 	// Delete Organization
 	print "Delete Organization \n";
 	$deleteOrganization = new ET_Organization();
@@ -139,14 +139,14 @@ try {
 	$deleteResponse = $deleteOrganization->delete();
 	print_r('Delete Status: '.($deleteResponse->status ? 'true' : 'false')."\n");
 	print 'Code: '.$deleteResponse->code."\n";
-	print 'Message: '.$deleteResponse->message."\n";	
+	print 'Message: '.$deleteResponse->message."\n";
 	print 'Results Length: '. count($deleteResponse->results)."\n";
 	print 'Results: '."\n";
 	print_r($deleteResponse->results);
 	print "\n---------------\n";
-	
-	
-	
+
+
+
 	// Retrieve Organization to confirm deletion
 	print "Retrieve Organization to confirm deletion \n";
 	$getOrganization = new ET_Organization();
@@ -160,20 +160,20 @@ try {
 	print_r('More Results: '.($getResponse->moreResults ? 'true' : 'false')."\n");
 	print 'Results Length: '. count($getResponse->results)."\n";
 	print "\n---------------\n";
-	
+
 	$TestOrganizationID = $getResponse->results[0]->ID;
 	$TestOrganizationName = $getResponse->results[0]->Name;
 	$TestOrganizationIsActive = $getResponse->results[0]->IsActive;
 	print_r('Test Organization ID: '.$TestOrganizationID.', Name: '.$TestOrganizationName.", IsActrive: " .$TestOrganizationIsActive."\n");
 	print "\n---------------\n";
-	
+
 
 }
 catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
-?>
+
 
 
 

@@ -17,13 +17,16 @@ final class TriggeredSendTest extends TestCase
     private $TSNameForCreateThenDelete;
     private $TSNameForDelete;
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client(true);
         $this->NameOfTestTS = "TEXTEXT";
         $this->SendClassificationID = "33e2e7ee-194a-e711-80d2-1402ec6b9528";
         $this->EmailID = "189392";
-//        $this->TSNameForCreateThenDelete = uniqid();
+        try {
+            $this->myclient = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanGetTriggeredSendDefinition()
@@ -32,7 +35,7 @@ final class TriggeredSendTest extends TestCase
         print_r("\nGet all TriggeredSendDefinitions \n");
         $trigger = new ET_TriggeredSend();
         $trigger->authStub = $this->myclient;
-        $trigger->props = array("CustomerKey", "Name", "TriggeredSendStatus");	
+        $trigger->props = array("CustomerKey", "Name", "TriggeredSendStatus");
         $getResult = $trigger->get();
         print_r('Get Status: '.($getResult->status ? 'true' : 'false')."\n");
         print 'Code: '.$getResult->code."\n";
@@ -79,17 +82,17 @@ final class TriggeredSendTest extends TestCase
         print 'Result Count: '.count($patchResult->results)."\n";
         print 'Results: '."\n";
         print_r($patchResult->results);
-        print "\n---------------\n";   
+        print "\n---------------\n";
 
         $this->assertTrue($patchResult->status);
         $this->assertEquals($patchResult->results[0]->StatusMessage, "TriggeredSendDefinition updated");
-        $this->assertEquals($patchResult->results[0]->Object->TriggeredSendStatus, "Active");   
+        $this->assertEquals($patchResult->results[0]->Object->TriggeredSendStatus, "Active");
 
     }
 
     public function testCanSendTriggeredSendDefinition()
     {
-        // Send an email with TriggeredSend 
+        // Send an email with TriggeredSend
         print_r("\nSend an email using a triggered send \n");
         $sendTrigger = new ET_TriggeredSend();
         $sendTrigger->props = array('CustomerKey' => $this->NameOfTestTS);
@@ -101,17 +104,20 @@ final class TriggeredSendTest extends TestCase
         print 'Message: '.$sendResult->message."\n";
         print 'Results: '."\n";
         print_r($sendResult->results);
-        print "\n---------------\n";   
+        print "\n---------------\n";
 
         $this->assertTrue($sendResult->status);
         $this->assertEquals($sendResult->results[0]->StatusMessage, "Created TriggeredSend");
     }
 
+    /**
+     * @throws \Exception
+     */
     public function testCanCreateTriggeredSendDefinition()
     {
         // Create a TriggeredSend Definition
         print_r("\nCreate a TriggeredSend Definition  \n");
-        $this->TSNameForCreateThenDelete = uniqid();        
+        $this->TSNameForCreateThenDelete = uniqid();
         echo 'CustomerKey = ' . $this->TSNameForCreateThenDelete . "\n";
 
         $postTrig = new ET_TriggeredSend();
@@ -133,7 +139,7 @@ final class TriggeredSendTest extends TestCase
         $this->assertEquals($postResult->results[0]->Object->Name, $this->TSNameForCreateThenDelete);
         //$this->assertEquals($postResult->results[0]->Object->EmailSubject, $this->NameOfTestTS);
 
-        return $this->TSNameForCreateThenDelete;          
+        return $this->TSNameForCreateThenDelete;
     }
 
     /**
@@ -141,7 +147,7 @@ final class TriggeredSendTest extends TestCase
      */
     public function testCanDeleteTriggeredSendDefinition($TSNameForDelete)
     {
-        // Delete a TriggeredSend Definition 
+        // Delete a TriggeredSend Definition
         print_r("\nDelete a TriggeredSend Definition \n");
         echo 'CustomerKey = ' . $TSNameForDelete . "\n";
 
@@ -159,8 +165,8 @@ final class TriggeredSendTest extends TestCase
 
         $this->assertTrue($deleteResult->status);
         $this->assertEquals($deleteResult->results[0]->StatusMessage, "TriggeredSendDefinition deleted");
-        $this->assertEquals($deleteResult->results[0]->Object->CustomerKey, $TSNameForDelete);  
-    }    
+        $this->assertEquals($deleteResult->results[0]->Object->CustomerKey, $TSNameForDelete);
+    }
 
 
 }

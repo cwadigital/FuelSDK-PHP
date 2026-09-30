@@ -16,9 +16,13 @@ final class ListSubscriberTest extends TestCase
 	private $NewListName = "PHPSDKListSubscriber";
 	private $SubscriberTestEmail = "PHPSDKListSubscriber@bh.exacttarget.com";
 
-    function __construct()
+    protected function setUp(): void
     {
-        $this->myclient = new ET_Client(true);
+        try {
+            $this->myclient = new ET_Client(true);
+        } catch (\Throwable $e) {
+            $this->markTestSkipped('ET_Client could not be initialized (missing config.php): ' . $e->getMessage());
+        }
     }
 
     public function testCanGetListSubscriber()
@@ -31,6 +35,9 @@ final class ListSubscriberTest extends TestCase
 
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createList(){
         print "Create List \n";
         $postContent = new ET_List();
@@ -39,17 +46,20 @@ final class ListSubscriberTest extends TestCase
         $postResponse = $postContent->post();
         print_r('Post Status: '.($postResponse->status ? 'true' : 'false')."\n");
         print 'Code: '.$postResponse->code."\n";
-        print 'Message: '.$postResponse->message."\n";	
+        print 'Message: '.$postResponse->message."\n";
         print 'Results Length: '. count($postResponse->results)."\n";
         print 'Results: '."\n";
         print_r($postResponse->results);
         print "\n---------------\n";
-        
+
         if ($postResponse->status)
             return $postResponse->results[0]->NewID;
 
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createSubscriber($newListID){
 		// Create Subscriber on List
 		print "Create Subscriber on List \n";
@@ -59,7 +69,7 @@ final class ListSubscriberTest extends TestCase
 		$postResult = $subCreate->post();
 		print_r('Post Status: '.($postResult->status ? 'true' : 'false')."\n");
 		print 'Code: '.$postResult->code."\n";
-		print 'Message: '.$postResult->message."\n";	
+		print 'Message: '.$postResult->message."\n";
 		print 'Results Length: '. count($postResult->results)."\n";
 		print 'Results: '."\n";
 		print_r($postResult->results);

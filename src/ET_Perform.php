@@ -3,19 +3,25 @@
 //     include_once 'src/'.$class_name.'.php';
 // });
 namespace FuelSdk;
-use \SoapVar;
+use SoapVar;
 /**
  * This class represents the PERFORM operation for SOAP service.
  */
 class ET_Perform extends ET_Constructor
 {
-	/**
-	* Initializes a new instance of the class.
-	* @param 	ET_Client   $authStub 	The ET client object which performs the auth token, refresh token using clientID clientSecret
-	* @param    string      $objType 	Object name, e.g. "ImportDefinition", "DataExtension", etc
-	* @param 	string 		$action 	Action names e.g. "create", "delete", "update", etc
-	* @param 	array       $props 		Dictionary type array which may hold e.g. array('id' => '', 'key' => '')
-	*/
+    /**
+     * Initializes a new instance of the class.
+     *
+     * @param  ET_Client  $authStub  The ET client object which performs the auth token, refresh token using clientID clientSecret
+     * @param  string  $objType  Object name, e.g. "ImportDefinition", "DataExtension", etc
+     * @param  string  $action  Action names e.g. "create", "delete", "update", etc
+     * @param  array  $props  Dictionary type array which may hold e.g. array('id' => '', 'key' => '')
+     *
+     * @throws \SoapFault
+     * @throws \Exception
+     * @throws \SoapFault
+     * @throws \SoapFault
+     */
 	function __construct($authStub, $objType, $action, $props)
 	{
 		$authStub->refreshToken();
@@ -24,7 +30,7 @@ class ET_Perform extends ET_Constructor
 		$performRequest['Action'] = $action;
 		$performRequest['Definitions'] = array();
 		$performRequest['Definitions'][] = new SoapVar($props, SOAP_ENC_OBJECT, $objType, "http://exacttarget.com/wsdl/partnerAPI");
-		
+
 		$perform['PerformRequestMsg'] = $performRequest;
 		$return = $authStub->__soapCall("Perform", $perform, null, null , $out_header);
 		parent::__construct($return, $authStub->__getLastResponseHTTPCode());
@@ -45,4 +51,3 @@ class ET_Perform extends ET_Constructor
 		}
 	}
 }
-?>

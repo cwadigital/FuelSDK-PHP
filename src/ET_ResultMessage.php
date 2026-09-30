@@ -8,12 +8,11 @@ namespace FuelSdk;
 class ET_ResultMessage extends ET_GetSupport
 {
 
-	/** 
+	/**
 	* Initializes a new instance of the class and set the since last batch to true.
-	*/	
-	function __construct() 
+	*/
+	function __construct()
 	{
 		$this->obj = "ResultMessage";
 	}
 }
-?>
